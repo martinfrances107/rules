@@ -102,7 +102,8 @@ class EntityCreateDeriver extends DeriverBase implements ContainerDeriverInterfa
 
         $type_definition = $item_definition->getPropertyDefinition($main_property_name);
 
-        // Get around types which don't properly define their main property (or lack of one)
+        // Get around types which don't properly define their main property
+        // or lack a main property entirely.
         if (is_null($type_definition)) {
           continue;
         }
