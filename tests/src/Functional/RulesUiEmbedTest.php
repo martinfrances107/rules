@@ -17,7 +17,7 @@ class RulesUiEmbedTest extends RulesBrowserTestBase {
   public static $modules = ['rules_test_ui_embed'];
 
   /**
-   * @cover \Drupal\rules_test_ui_embed\Form\SettingsForm
+   * @covers \Drupal\rules_test_ui_embed\Form\SettingsForm
    */
   public function testExampleUi() {
     $account = $this->drupalCreateUser([

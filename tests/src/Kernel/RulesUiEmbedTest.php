@@ -40,7 +40,7 @@ class RulesUiEmbedTest extends RulesDrupalTestBase {
   }
 
   /**
-   * @cover \Drupal\rules\Ui\RulesUiManager
+   * @covers \Drupal\rules\Ui\RulesUiManager
    */
   public function testUiManager() {
     $definition = $this->rulesUiManager->getDefinitions();
