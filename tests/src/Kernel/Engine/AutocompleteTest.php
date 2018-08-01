@@ -140,13 +140,11 @@ class AutocompleteTest extends RulesDrupalTestBase {
       ],
       [
         'value' => 'node.nid',
-        // @todo Remove this once Drupal 8.0.x is unsupported.
-        'label' => version_compare(substr(\Drupal::VERSION, 0, 5), '8.1.0') === -1 ? 'node.nid (Node ID)' : 'node.nid (ID)',
+        'label' => 'node.nid (ID)',
       ],
       [
         'value' => 'node.nid.',
-        // @todo Remove this once Drupal 8.0.x is unsupported.
-        'label' => version_compare(substr(\Drupal::VERSION, 0, 5), '8.1.0') === -1 ? 'node.nid... (Node ID)' : 'node.nid... (ID)',
+        'label' => 'node.nid... (ID)',
       ],
       [
         'value' => 'node.promote',
@@ -157,11 +155,7 @@ class AutocompleteTest extends RulesDrupalTestBase {
         'label' => 'node.promote... (Promoted to front page)',
       ],
     ],
-    // The "Default revision" flag was added in core 8.5.x but not 8.4.x.
-    // Use tertiary conditional to either add two items or add none.
-    // @todo Remove this conditional check when 8.4.x is no longer supported.
-    // @see https://www.drupal.org/project/rules/issues/2936679
-    (version_compare(substr(\Drupal::VERSION, 0, 3), '8.5', '>=')) ? [
+    [
       [
         'value' => 'node.revision_default',
         'label' => 'node.revision_default (Default revision)',
@@ -170,7 +164,7 @@ class AutocompleteTest extends RulesDrupalTestBase {
         'value' => 'node.revision_default.',
         'label' => 'node.revision_default... (Default revision)',
       ],
-    ] : [],
+    ],
     [
       [
         'value' => 'node.revision_log',
@@ -182,15 +176,11 @@ class AutocompleteTest extends RulesDrupalTestBase {
       ],
       [
         'value' => 'node.revision_timestamp',
-        // @todo In Drupal 8.4.x the text changed from (Revision timestamp) to
-        // (Revision create time). Remove this once 8.3.x is unsupported.
-        'label' => version_compare(substr(\Drupal::VERSION, 0, 3), '8.4', '>=') ? 'node.revision_timestamp (Revision create time)' : 'node.revision_timestamp (Revision timestamp)',
+        'label' => 'node.revision_timestamp (Revision create time)',
       ],
       [
         'value' => 'node.revision_timestamp.',
-        // @todo In Drupal 8.4.x the text changed from (Revision timestamp) to
-        // (Revision create time). Remove this once 8.3.x is unsupported.
-        'label' => version_compare(substr(\Drupal::VERSION, 0, 3), '8.4', '>=') ? 'node.revision_timestamp... (Revision create time)' : 'node.revision_timestamp... (Revision timestamp)',
+        'label' => 'node.revision_timestamp... (Revision create time)',
       ],
       [
         'value' => 'node.revision_translation_affected',
@@ -202,27 +192,19 @@ class AutocompleteTest extends RulesDrupalTestBase {
       ],
       [
         'value' => 'node.revision_uid',
-        // @todo In Drupal 8.4.x the text changed from (Revision user ID) to
-        // (Revision user). Remove this once 8.3.x is unsupported.
-        'label' => version_compare(substr(\Drupal::VERSION, 0, 3), '8.4', '>=') ? 'node.revision_uid (Revision user)' : 'node.revision_uid (Revision user ID)',
+        'label' => 'node.revision_uid (Revision user)',
       ],
       [
         'value' => 'node.revision_uid.',
-        // @todo In Drupal 8.4.x the text changed from (Revision user ID) to
-        // (Revision user). Remove this once 8.3.x is unsupported.
-        'label' => version_compare(substr(\Drupal::VERSION, 0, 3), '8.4', '>=') ? 'node.revision_uid... (Revision user)' : 'node.revision_uid... (Revision user ID)',
+        'label' => 'node.revision_uid... (Revision user)',
       ],
       [
         'value' => 'node.status',
-        // In Core 8.4 the text has changed from Publishing Status to Published.
-        // @todo Remove this version checking when 8.3.x is unsupported.
-        'label' => version_compare(substr(\Drupal::VERSION, 0, 3), '8.4', '>=') ? 'node.status (Published)' : 'node.status (Publishing status)',
+        'label' => 'node.status (Published)',
       ],
       [
         'value' => 'node.status.',
-        // In Core 8.4 the text has changed from Publishing Status to Published.
-        // @todo Remove this version checking when 8.3.x is unsupported.
-        'label' => version_compare(substr(\Drupal::VERSION, 0, 3), '8.4', '>=') ? 'node.status... (Published)' : 'node.status... (Publishing status)',
+        'label' => 'node.status... (Published)',
       ],
       [
         'value' => 'node.sticky',
@@ -242,13 +224,11 @@ class AutocompleteTest extends RulesDrupalTestBase {
       ],
       [
         'value' => 'node.type',
-        // @todo Remove this once Drupal 8.0.x is unsupported.
-        'label' => version_compare(substr(\Drupal::VERSION, 0, 5), '8.1.0') === -1 ? 'node.type (Type)' : 'node.type (Content type)',
+        'label' => 'node.type (Content type)',
       ],
       [
         'value' => 'node.type.',
-        // @todo Remove this once Drupal 8.0.x is unsupported.
-        'label' => version_compare(substr(\Drupal::VERSION, 0, 5), '8.1.0') === -1 ? 'node.type... (Type)' : 'node.type... (Content type)',
+        'label' => 'node.type... (Content type)',
       ],
       [
         'value' => 'node.uid',
