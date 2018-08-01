@@ -34,7 +34,14 @@ class UiPageTest extends RulesBrowserTestBase {
     $this->assertSession()->statusCodeEquals(200);
 
     // Test that there is an empty reaction rule listing.
-    $this->assertSession()->pageTextContains('There is no Reaction Rule yet.');
+    // @todo In Drupal 8.6.x the text changed from 'There is no Reaction Rule'
+    // to 'There are no reaction rules'. Remove this once 8.5.x is unsupported.
+    if (version_compare(substr(\Drupal::VERSION, 0, 3), '8.6', '>=')) {
+      $this->assertSession()->pageTextContains('There are no reaction rules yet.');
+    }
+    else {
+      $this->assertSession()->pageTextContains('There is no Reaction Rule yet.');
+    }
   }
 
   /**
