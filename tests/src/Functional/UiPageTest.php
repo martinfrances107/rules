@@ -36,7 +36,6 @@ class UiPageTest extends RulesBrowserTestBase {
     // Test that there is an empty reaction rule listing.
     // @todo In Drupal 8.6.x the text changed from 'There is no Reaction Rule'
     // to 'There are no reaction rules'. Remove this once 8.5.x is unsupported.
-    // @see https://www.drupal.org/project/rules/issues/2989050
     if (version_compare(substr(\Drupal::VERSION, 0, 3), '8.6', '>=')) {
       $this->assertSession()->pageTextContains('There are no reaction rules yet.');
     }

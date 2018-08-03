@@ -6,7 +6,6 @@ use Drupal\Core\Form\FormStateInterface;
 use Drupal\Core\StringTranslation\StringTranslationTrait;
 use Drupal\rules\Core\ConditionManager;
 use Drupal\rules\Engine\ConditionExpressionInterface;
-use Drupal\rules\Form\ContextFormTrait;
 use Drupal\rules\Ui\RulesUiHandlerTrait;
 
 /**
@@ -14,9 +13,9 @@ use Drupal\rules\Ui\RulesUiHandlerTrait;
  */
 class ConditionForm implements ExpressionFormInterface {
 
+  use ContextFormTrait;
   use StringTranslationTrait;
   use RulesUiHandlerTrait;
-  use ContextFormTrait;
 
   /**
    * The condition plugin manager.

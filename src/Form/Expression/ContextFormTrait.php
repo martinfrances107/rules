@@ -1,14 +1,11 @@
 <?php
 
-namespace Drupal\rules\Form;
+namespace Drupal\rules\Form\Expression;
 
 use Drupal\Core\Form\FormStateInterface;
-use Drupal\Core\Form\SubformState;
 use Drupal\rules\Context\ContextConfig;
-// TODO Question: should we do this change?
-use Drupal\rules\Context\ContextDefinitionInterface;
+use Drupal\Core\Plugin\Context\ContextDefinitionInterface;
 use Drupal\rules\Context\DataProcessorManagerTrait;
-use Drupal\typed_data\Widget\FormWidgetManagerTrait;
 
 /**
  * Provides form logic for handling contexts when configuring an expression.
@@ -16,7 +13,6 @@ use Drupal\typed_data\Widget\FormWidgetManagerTrait;
 trait ContextFormTrait {
 
   use DataProcessorManagerTrait;
-  use FormWidgetManagerTrait;
 
   /**
    * Provides the form part for a context parameter.
@@ -35,7 +31,7 @@ trait ContextFormTrait {
     // exist default to the "input" mode.
     $mode = $form_state->get('context_' . $context_name);
     if (!$mode) {
-      if (isset($configuration['context_mapping']) && isset($configuration['context_mapping'][$context_name])) {
+      if (isset($configuration['context_mapping'][$context_name])) {
         $mode = 'selector';
       }
       else {
@@ -49,39 +45,18 @@ trait ContextFormTrait {
     if (isset($configuration['context_values'][$context_name])) {
       $default_value = $configuration['context_values'][$context_name];
     }
-    elseif (isset($configuration['context_mapping']) && isset($configuration['context_mapping'][$context_name])) {
+    elseif (isset($configuration['context_mapping'][$context_name])) {
       $default_value = $configuration['context_mapping'][$context_name];
     }
     else {
       $default_value = $context_definition->getDefaultValue();
     }
-
     $form['context'][$context_name]['setting'] = [
       '#type' => 'textfield',
       '#title' => $title,
       '#required' => $context_definition->isRequired(),
       '#default_value' => $default_value,
     ];
-
-    // Use suitable widgets for data entry of values.
-    if ($context_name == 'value') {
-      $dataManager = $context_definition->getTypedDataManager();
-      $dataDefinition = $context_definition->getDataDefinition();
-      $typed_data = $dataManager->create($dataDefinition);
-
-      if (isset($configuration['context_mapping']) && $property_path = $configuration['context_mapping']['data']) {
-        $sub_paths = explode('.', $property_path);
-        $dataType = \Drupal::entityManager()->getStorage('field_storage_config')->load($sub_paths[0] . '.' . $sub_paths[1])->getType();
-
-        if ($widget_id = $context_definition->getWidgetId($dataType)) {
-          $widget = $this->getFormWidgetManager()->createInstance($widget_id);
-          $sub_form = [];
-          $sub_form_state = SubformState::createForSubform($sub_form, $form, $form_state);
-
-          $form['context'][$context_name]['setting'] = $widget->form($typed_data, $sub_form_state);
-        }
-      }
-    }
 
     $element = &$form['context'][$context_name]['setting'];
 
