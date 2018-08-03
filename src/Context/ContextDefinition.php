@@ -117,4 +117,47 @@ class ContextDefinition extends ContextDefinitionCore implements ContextDefiniti
     return $this;
   }
 
+  /**
+   * {@inheritdoc}
+   */
+  public function getWidgetId($dataType) {
+    $widgets = [
+      'text_input' => [
+        'boolean',
+        'datetime',
+        'entity_reference',
+        'datetime',
+        'duration',
+        'email',
+        'link',
+        'float',
+        'integer',
+        'string',
+        'url',
+      ],
+      'textarea' => [
+        'list',
+        'daterange',
+      ],
+    ];
+
+    foreach ($widgets as $widget_id => $data_types) {
+      foreach ($data_types as $data_type) {
+        if ($dataType == $data_type) {
+          return $widget_id;
+        }
+      }
+    }
+
+    // If we don't recognize the data type, use the "broken" widget.
+    return 'broken';
+  }
+
+  /**
+   * {@inheritdoc}
+   */
+  public function getWidgetSettings() {
+    return [];
+  }
+
 }

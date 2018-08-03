@@ -68,4 +68,24 @@ interface ContextDefinitionInterface extends ContextDefinitionInterfaceCore {
    */
   public function toArray();
 
+  /**
+   * Gets default widget id.
+   *
+   * @param string $dataType
+   *   The data type of the field.
+   *
+   * @return string|null
+   *   A string with the widget id or nothing if the data type needed by
+   *   the context is not supported by any widget.
+   */
+  public function getWidgetId($dataType);
+
+  /**
+   * Gets default configuration of the widget.
+   *
+   * @return array
+   *   An associative array with the default configuration.
+   */
+  public function getWidgetSettings();
+
 }

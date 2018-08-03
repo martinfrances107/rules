@@ -90,7 +90,7 @@ trait ContextHandlerTrait {
         // If a context mapping has been specified, the value might end up NULL
         // but valid (e.g. a reference on an empty property). In that case
         // isAllowedNull determines whether the context is conform.
-        if (!isset($this->configuration['context_mapping'][$name])) {
+        if (!isset($this->configuration['context_mapping']) || !isset($this->configuration['context_mapping'][$name])) {
           throw new EvaluationException("Required context $name is missing for plugin "
             . $plugin->getPluginId() . '.');
         }
@@ -191,7 +191,7 @@ trait ContextHandlerTrait {
    *   invalid.
    */
   protected function getMappedDefinition($context_name, ExecutionMetadataStateInterface $metadata_state) {
-    if (isset($this->configuration['context_mapping'][$context_name])) {
+    if (isset($this->configuration['context_mapping']) && isset($this->configuration['context_mapping'][$context_name])) {
       return $metadata_state->fetchDefinitionByPropertyPath($this->configuration['context_mapping'][$context_name]);
     }
   }
@@ -269,10 +269,12 @@ trait ContextHandlerTrait {
 
     // Reverse the mapping and apply the changes.
     foreach ($changed_definitions as $context_name => $definition) {
-      $selector = $this->configuration['context_mapping'][$context_name];
-      // @todo: Deal with selectors matching not a context name.
-      if (strpos($selector, '.') === FALSE) {
-        $metadata_state->setDataDefinition($selector, $definition);
+      if (isset($this->configuration['context_mapping'])) {
+        $selector = $this->configuration['context_mapping'][$context_name];
+        // @todo: Deal with selectors matching not a context name.
+        if (strpos($selector, '.') === FALSE) {
+          $metadata_state->setDataDefinition($selector, $definition);
+        }
       }
     }
   }
