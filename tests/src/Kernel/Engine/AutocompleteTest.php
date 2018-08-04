@@ -29,6 +29,12 @@ class AutocompleteTest extends RulesDrupalTestBase {
 
     $this->installEntitySchema('user');
 
+    // The global CurrentUserContext doesn't work properly without a
+    // fully-installed user module.
+    // @see https://www.drupal.org/project/rules/issues/2989417
+    $this->container->get('module_handler')->loadInclude('user', 'install');
+    user_install();
+
     $entity_type_manager = $this->container->get('entity_type.manager');
     $entity_type_manager->getStorage('node_type')
       ->create(['type' => 'page'])

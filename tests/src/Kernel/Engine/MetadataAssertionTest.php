@@ -36,6 +36,13 @@ class MetadataAssertionTest extends RulesDrupalTestBase {
 
     $this->installSchema('system', ['sequences']);
     $this->installEntitySchema('user');
+
+    // The global CurrentUserContext doesn't work properly without a
+    // fully-installed user module.
+    // @see https://www.drupal.org/project/rules/issues/2989417
+    $this->container->get('module_handler')->loadInclude('user', 'install');
+    user_install();
+
     $this->installEntitySchema('node');
     $this->installConfig(['field']);
 
