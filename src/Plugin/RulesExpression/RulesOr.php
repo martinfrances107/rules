@@ -33,7 +33,7 @@ class RulesOr extends ConditionExpressionContainer {
    * {@inheritdoc}
    */
   protected function allowsMetadataAssertions() {
-    // We cannot garantuee child expressions are executed, thus we cannot allow
+    // We cannot guarantee child expressions are executed, thus we cannot allow
     // metadata assertions.
     return FALSE;
   }

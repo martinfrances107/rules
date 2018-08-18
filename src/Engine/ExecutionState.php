@@ -118,7 +118,7 @@ class ExecutionState implements ExecutionStateInterface {
   public function hasVariable($name) {
     if (!array_key_exists($name, $this->variables)) {
       // If there is no such variable, lazy-add global context variables. That
-      // way can safe time fetching global context if its not needed.
+      // way can save time fetching global context if it is not needed.
       if (!($name[0] === '@' && strpos($name, ':') !== FALSE)) {
         return FALSE;
       }
