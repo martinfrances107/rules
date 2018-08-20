@@ -33,9 +33,17 @@ use Drupal\rules\Exception\InvalidArgumentException;
  * @todo Add various input restrictions.
  * @todo Add options_list for target type.
  * @todo Specify the right data type for the provided result.
- * @todo Alter context definition based on the target type.
  */
 class DataConvert extends RulesActionBase {
+
+  /**
+   * {@inheritdoc}
+   */
+  public function refineContextDefinitions(array $selected_data) {
+    if ($type = $this->getContextValue('target_type')) {
+      $this->pluginDefinition['provides']['conversion_result']->setDataType($type);
+    }
+  }
 
   /**
    * Executes the plugin.
