@@ -140,7 +140,12 @@ class RulesCondition extends ExpressionBase implements ConditionExpressionInterf
   public function getLabel() {
     if (!empty($this->configuration['condition_id'])) {
       $definition = $this->conditionManager->getDefinition($this->configuration['condition_id']);
-      return $this->t('Condition: @label', ['@label' => $definition['label']]);
+      if ($this->isNegated()) {
+        return $this->t('Condition: @not @label', ['@not' => $this->t('NOT'), '@label' => $definition['label']]);
+      }
+      else {
+        return $this->t('Condition: @label', ['@label' => $definition['label']]);
+      }
     }
     return parent::getLabel();
   }
