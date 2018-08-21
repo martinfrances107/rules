@@ -50,7 +50,7 @@ namespace Drupal\Tests\rules\Unit\Integration\Action {
 
       $this->action->execute();
 
-      // To get the notifications that were sent, we call the _user_mail_notify()
+      // To get the notifications that were sent, we call _user_mail_notify()
       // with no parameters.
       $notifications = _user_mail_notify();
       $this->assertSame([$mail_type => 1], $notifications);
