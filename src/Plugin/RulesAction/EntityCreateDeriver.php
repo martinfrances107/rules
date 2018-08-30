@@ -68,7 +68,7 @@ class EntityCreateDeriver extends DeriverBase implements ContainerDeriverInterfa
       }
 
       $this->derivatives[$entity_type_id] = [
-        'label' => $this->t('Create a new @entity_type', ['@entity_type' => $entity_type->getLowercaseLabel()]),
+        'label' => $this->t('Create a new @entity_type', ['@entity_type' => $entity_type->getSingularLabel()]),
         'category' => $entity_type->getLabel(),
         'entity_type_id' => $entity_type_id,
         'context' => [],

@@ -49,7 +49,7 @@ class EntityPathAliasCreateTest extends RulesEntityIntegrationTestBase {
    * @covers ::summary
    */
   public function testSummary() {
-    $this->assertEquals('Create test path alias', $this->action->summary());
+    $this->assertEquals('Create a test path alias', $this->action->summary());
   }
 
   /**
