@@ -52,10 +52,10 @@ class DataListCountIs extends RulesConditionBase {
       case '==':
         return count($list) == $value;
 
-      case '<';
+      case '<':
         return count($list) < $value;
 
-      case '>';
+      case '>':
         return count($list) > $value;
 
     }
