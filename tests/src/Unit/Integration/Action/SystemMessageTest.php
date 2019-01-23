@@ -20,7 +20,7 @@ namespace Drupal\Tests\rules\Unit\Integration\Action {
     /**
      * {@inheritdoc}
      */
-    public function setUp() {
+    protected function setUp() {
       parent::setUp();
 
       $this->action = $this->actionManager->createInstance('rules_system_message');

@@ -24,7 +24,7 @@ class ActionSetTest extends RulesUnitTestBase {
   /**
    * {@inheritdoc}
    */
-  public function setUp() {
+  protected function setUp() {
     parent::setUp();
 
     $this->actionSet = new ActionSet([], '', [], $this->expressionManager->reveal());

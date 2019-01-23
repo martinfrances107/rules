@@ -38,7 +38,7 @@ class BanIPTest extends RulesIntegrationTestBase {
   /**
    * {@inheritdoc}
    */
-  public function setUp() {
+  protected function setUp() {
     parent::setUp();
     // We need the ban module.
     $this->enableModule('ban');

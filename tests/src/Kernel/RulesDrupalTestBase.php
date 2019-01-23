@@ -53,7 +53,7 @@ abstract class RulesDrupalTestBase extends KernelTestBase {
   /**
    * {@inheritdoc}
    */
-  public function setUp() {
+  protected function setUp() {
     parent::setUp();
 
     $this->logger = $this->container->get('logger.channel.rules');

@@ -68,7 +68,7 @@ namespace Drupal\Tests\rules\Unit\Integration\Action {
     /**
      * {@inheritdoc}
      */
-    public function setUp() {
+    protected function setUp() {
       parent::setUp();
 
       // Mock a logger.

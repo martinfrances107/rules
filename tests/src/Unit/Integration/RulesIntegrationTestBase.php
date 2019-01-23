@@ -145,7 +145,7 @@ abstract class RulesIntegrationTestBase extends UnitTestCase {
   /**
    * {@inheritdoc}
    */
-  public function setUp() {
+  protected function setUp() {
     parent::setUp();
     $container = new ContainerBuilder();
     // Register plugin managers used by Rules, but mock some unwanted

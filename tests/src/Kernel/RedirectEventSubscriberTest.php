@@ -17,7 +17,7 @@ class RedirectEventSubscriberTest extends RulesDrupalTestBase {
   /**
    * {@inheritdoc}
    */
-  public function setUp() {
+  protected function setUp() {
     parent::setUp();
 
     // Drupal 8.0.x needs the router table installed which is done automatically

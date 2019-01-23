@@ -28,11 +28,10 @@ class PathAliasDeleteByPathTest extends RulesIntegrationTestBase {
   /**
    * {@inheritdoc}
    */
-  public function setUp() {
+  protected function setUp() {
     parent::setUp();
 
     $this->aliasStorage = $this->prophesize(AliasStorageInterface::class);
-
     $this->container->set('path.alias_storage', $this->aliasStorage->reveal());
 
     $this->action = $this->actionManager->createInstance('rules_path_alias_delete_by_path');

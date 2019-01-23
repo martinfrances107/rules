@@ -21,7 +21,7 @@ class ConfigSchemaTest extends RulesDrupalTestBase {
   /**
    * {@inheritdoc}
    */
-  public function setUp() {
+  protected function setUp() {
     parent::setUp();
 
     $this->storage = $this->container->get('entity_type.manager')->getStorage('rules_component');

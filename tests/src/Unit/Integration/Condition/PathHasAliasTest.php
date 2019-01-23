@@ -28,7 +28,7 @@ class PathHasAliasTest extends RulesIntegrationTestBase {
   /**
    * {@inheritdoc}
    */
-  public function setUp() {
+  protected function setUp() {
     parent::setUp();
 
     $this->condition = $this->conditionManager->createInstance('rules_path_has_alias');

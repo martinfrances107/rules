@@ -23,7 +23,7 @@ class RulesAndTest extends RulesUnitTestBase {
   /**
    * {@inheritdoc}
    */
-  public function setUp() {
+  protected function setUp() {
     parent::setUp();
 
     $this->and = new RulesAnd([], '', [], $this->expressionManager->reveal());

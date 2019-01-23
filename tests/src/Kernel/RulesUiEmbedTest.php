@@ -29,7 +29,7 @@ class RulesUiEmbedTest extends RulesDrupalTestBase {
   /**
    * {@inheritdoc}
    */
-  public function setUp() {
+  protected function setUp() {
     parent::setUp();
 
     $this->rulesUiManager = $this->container->get('plugin.manager.rules_ui');

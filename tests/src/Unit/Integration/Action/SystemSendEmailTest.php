@@ -35,7 +35,7 @@ class SystemSendEmailTest extends RulesIntegrationTestBase {
   /**
    * {@inheritdoc}
    */
-  public function setUp() {
+  protected function setUp() {
     parent::setUp();
     $this->logger = $this->prophesize(LoggerInterface::class);
     $logger_factory = $this->prophesize(LoggerChannelFactoryInterface::class);

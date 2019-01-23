@@ -50,7 +50,7 @@ class RulesConditionTest extends UnitTestCase {
   /**
    * {@inheritdoc}
    */
-  public function setUp() {
+  protected function setUp() {
     parent::setUp();
 
     // Create a test condition plugin that always evaluates to TRUE.

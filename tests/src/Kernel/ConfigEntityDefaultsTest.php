@@ -42,7 +42,7 @@ class ConfigEntityDefaultsTest extends RulesDrupalTestBase {
   /**
    * {@inheritdoc}
    */
-  public function setUp() {
+  protected function setUp() {
     parent::setUp();
     $this->entityTypeManager = $this->container->get('entity_type.manager');
     $this->storage = $this->entityTypeManager->getStorage('rules_component');

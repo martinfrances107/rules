@@ -49,7 +49,7 @@ class RuleTest extends RulesUnitTestBase {
   /**
    * {@inheritdoc}
    */
-  public function setUp() {
+  protected function setUp() {
     parent::setUp();
 
     $this->expressionManager = $this->prophesize(ExpressionManagerInterface::class);

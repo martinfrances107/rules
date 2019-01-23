@@ -19,7 +19,7 @@ class EntityViewTest extends RulesDrupalTestBase {
   /**
    * {@inheritdoc}
    */
-  public function setUp() {
+  protected function setUp() {
     parent::setUp();
 
     $this->installConfig(['system']);

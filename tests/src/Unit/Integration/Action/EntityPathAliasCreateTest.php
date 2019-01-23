@@ -31,7 +31,7 @@ class EntityPathAliasCreateTest extends RulesEntityIntegrationTestBase {
   /**
    * {@inheritdoc}
    */
-  public function setUp() {
+  protected function setUp() {
     parent::setUp();
 
     // Prepare mocked AliasStorageInterface.

@@ -26,7 +26,7 @@ class RulesMailTest extends RulesDrupalTestBase {
   /**
    * {@inheritdoc}
    */
-  public function setUp() {
+  protected function setUp() {
     parent::setUp();
     // Use the state system collector mail backend.
     $this->container->get('config.factory')->getEditable('system.mail')

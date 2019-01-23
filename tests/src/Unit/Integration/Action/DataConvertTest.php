@@ -20,7 +20,7 @@ class DataConvertTest extends RulesIntegrationTestBase {
   /**
    * {@inheritdoc}
    */
-  public function setUp() {
+  protected function setUp() {
     parent::setUp();
 
     $this->action = $this->actionManager->createInstance('rules_data_convert');

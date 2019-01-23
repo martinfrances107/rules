@@ -29,7 +29,7 @@ class PathAliasCreateTest extends RulesIntegrationTestBase {
   /**
    * {@inheritdoc}
    */
-  public function setUp() {
+  protected function setUp() {
     parent::setUp();
 
     $this->aliasStorage = $this->prophesize(AliasStorageInterface::class);
