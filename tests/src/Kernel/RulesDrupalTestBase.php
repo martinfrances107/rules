@@ -93,7 +93,7 @@ abstract class RulesDrupalTestBase extends KernelTestBase {
   protected function assertRulesLogEntryExists($message, $log_item_index = 0) {
     // Test that the action has logged something.
     $logs = $this->logger->getLogs();
-    $this->assertEqual($logs[$log_item_index]['message'], $message);
+    $this->assertEquals($logs[$log_item_index]['message'], $message);
   }
 
 }

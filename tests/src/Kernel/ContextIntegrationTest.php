@@ -38,7 +38,7 @@ class ContextIntegrationTest extends RulesDrupalTestBase {
       $this->fail('No exception thrown when required context value is NULL');
     }
     catch (EvaluationException $e) {
-      $this->pass('Exception thrown as expected when a required context is NULL');
+      $this->assertTrue(TRUE, 'Exception thrown as expected when a required context is NULL');
     }
   }
 
@@ -62,7 +62,7 @@ class ContextIntegrationTest extends RulesDrupalTestBase {
       $this->fail('No exception thrown when required context value is NULL');
     }
     catch (EvaluationException $e) {
-      $this->pass('Exception thrown as expected when a required context is NULL');
+      $this->assertTrue(TRUE, 'Exception thrown as expected when a required context is NULL');
     }
   }
 

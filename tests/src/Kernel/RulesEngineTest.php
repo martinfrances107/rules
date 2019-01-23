@@ -131,7 +131,7 @@ class RulesEngineTest extends RulesDrupalTestBase {
 
     // Check that the newly named variable exists and has the provided value.
     $variable = $state->getVariable('newname');
-    $this->assertEqual($variable->getValue(), 'test value');
+    $this->assertEquals($variable->getValue(), 'test value');
   }
 
   /**
@@ -161,9 +161,9 @@ class RulesEngineTest extends RulesDrupalTestBase {
 
     // Check that the created variables exists and have the provided values.
     $concatenated = $state->getVariable('concatenated');
-    $this->assertEqual($concatenated->getValue(), 'test valuetest value');
+    $this->assertEquals($concatenated->getValue(), 'test valuetest value');
     $concatenated2 = $state->getVariable('concatenated2');
-    $this->assertEqual($concatenated2->getValue(), 'test valuetest valuetest valuetest value');
+    $this->assertEquals($concatenated2->getValue(), 'test valuetest valuetest valuetest value');
   }
 
   /**
