@@ -29,7 +29,7 @@ use Symfony\Component\DependencyInjection\ContainerInterface;
  *     ),
  *     "limit" = @ContextDefinition("integer",
  *       label = @Translation("Limit"),
- *       description = @Translation("Limit the maximum number of fetched entities."),
+ *       description = @Translation("Limit the maximum number of fetched entities. Leave blank for all matching entities."),
  *       default_value = NULL,
  *       required = FALSE,
  *     ),

@@ -14,7 +14,7 @@ use Drupal\rules\Core\RulesConditionBase;
  *   context = {
  *     "list" = @ContextDefinition("list",
  *       label = @Translation("List"),
- *       description = @Translation("A multi value data element to have its count compared, specified by using a data selector, eg 'node:uid:entity:roles'.")
+ *       description = @Translation("A multi value data element to have its count compared, specified by using a data selector, eg 'node.uid.entity.roles'.")
  *     ),
  *     "operator" = @ContextDefinition("string",
  *       label = @Translation("Operator"),

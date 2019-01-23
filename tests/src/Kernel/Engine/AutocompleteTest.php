@@ -261,7 +261,7 @@ class AutocompleteTest extends RulesDrupalTestBase {
         'label' => 'node.vid... (Revision ID)',
       ],
     ]);
-    // Because this is a huge array run the assertion per entry because that is
+    // Because this is a huge array, run the assertion per entry as that is
     // easier for debugging.
     foreach ($expected as $index => $entry) {
       $this->assertSame($entry, $results[$index]);
