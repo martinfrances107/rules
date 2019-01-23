@@ -11,7 +11,7 @@ use Drupal\rules\Engine\RulesComponent;
  *
  * @group Rules
  */
-class DataProcessorTest extends RulesDrupalTestBase {
+class DataProcessorTest extends RulesKernelTestBase {
 
   /**
    * Tests that the numeric offset plugin works.

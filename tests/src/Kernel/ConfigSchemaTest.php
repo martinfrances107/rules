@@ -9,7 +9,7 @@ use Drupal\rules\Context\ContextConfig;
  *
  * @group Rules
  */
-class ConfigSchemaTest extends RulesDrupalTestBase {
+class ConfigSchemaTest extends RulesKernelTestBase {
 
   /**
    * The entity storage for Rules config entities.

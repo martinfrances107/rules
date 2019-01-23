@@ -7,7 +7,7 @@ namespace Drupal\Tests\rules\Kernel;
  *
  * @group Rules
  */
-class ConfigEntityDefaultsTest extends RulesDrupalTestBase {
+class ConfigEntityDefaultsTest extends RulesKernelTestBase {
 
   /**
    * The entity storage for Rules config entities.

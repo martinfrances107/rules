@@ -7,7 +7,7 @@ namespace Drupal\Tests\rules\Kernel;
  *
  * @group Rules
  */
-class EntityViewTest extends RulesDrupalTestBase {
+class EntityViewTest extends RulesKernelTestBase {
 
   /**
    * Modules to enable.

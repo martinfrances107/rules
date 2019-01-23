@@ -12,7 +12,7 @@ use Drupal\rules\Exception\EvaluationException;
  *
  * @group Rules
  */
-class ContextIntegrationTest extends RulesDrupalTestBase {
+class ContextIntegrationTest extends RulesKernelTestBase {
 
   /**
    * Tests that a required context mapping that is NULL throws an exception.

@@ -12,7 +12,7 @@ use Symfony\Component\HttpFoundation\Request;
  *
  * @group RulesEvent
  */
-class RedirectEventSubscriberTest extends RulesDrupalTestBase {
+class RedirectEventSubscriberTest extends RulesKernelTestBase {
 
   /**
    * {@inheritdoc}

@@ -13,7 +13,7 @@ use Drupal\rules\Engine\ExecutionState;
  *
  * @group Rules
  */
-class RulesEngineTest extends RulesDrupalTestBase {
+class RulesEngineTest extends RulesKernelTestBase {
 
   /**
    * {@inheritdoc}

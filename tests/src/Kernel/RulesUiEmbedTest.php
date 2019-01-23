@@ -10,7 +10,7 @@ use Drupal\rules\Ui\RulesUiDefinition;
  *
  * @group RulesUi
  */
-class RulesUiEmbedTest extends RulesDrupalTestBase {
+class RulesUiEmbedTest extends RulesKernelTestBase {
 
   /**
    * Modules to enable.

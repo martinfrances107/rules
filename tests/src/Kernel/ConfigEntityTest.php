@@ -11,7 +11,7 @@ use Drupal\rules\Plugin\RulesExpression\Rule;
  *
  * @group Rules
  */
-class ConfigEntityTest extends RulesDrupalTestBase {
+class ConfigEntityTest extends RulesKernelTestBase {
 
   /**
    * The entity storage for Rules config entities.

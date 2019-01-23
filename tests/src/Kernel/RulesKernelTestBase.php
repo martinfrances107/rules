@@ -7,7 +7,7 @@ use Drupal\KernelTests\KernelTestBase;
 /**
  * Base class for Rules Drupal unit tests.
  */
-abstract class RulesDrupalTestBase extends KernelTestBase {
+abstract class RulesKernelTestBase extends KernelTestBase {
 
   /**
    * The expression plugin manager.

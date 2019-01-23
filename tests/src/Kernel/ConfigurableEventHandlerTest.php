@@ -13,7 +13,7 @@ use Drupal\rules\Event\EntityEvent;
  *
  * @group Rules
  */
-class ConfigurableEventHandlerTest extends RulesDrupalTestBase {
+class ConfigurableEventHandlerTest extends RulesKernelTestBase {
 
   /**
    * {@inheritdoc}

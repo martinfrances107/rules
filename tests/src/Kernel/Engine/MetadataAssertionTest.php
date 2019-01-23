@@ -7,14 +7,14 @@ use Drupal\field\Entity\FieldStorageConfig;
 use Drupal\rules\Context\ContextConfig;
 use Drupal\rules\Context\ContextDefinition;
 use Drupal\rules\Engine\RulesComponent;
-use Drupal\Tests\rules\Kernel\RulesDrupalTestBase;
+use Drupal\Tests\rules\Kernel\RulesKernelTestBase;
 
 /**
  * Tests asserting metadata works correctly.
  *
  * @group Rules
  */
-class MetadataAssertionTest extends RulesDrupalTestBase {
+class MetadataAssertionTest extends RulesKernelTestBase {
 
   /**
    * {@inheritdoc}

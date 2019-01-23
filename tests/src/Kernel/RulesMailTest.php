@@ -7,7 +7,7 @@ namespace Drupal\Tests\rules\Kernel;
  *
  * @group Rules
  */
-class RulesMailTest extends RulesDrupalTestBase {
+class RulesMailTest extends RulesKernelTestBase {
 
   /**
    * The action manager used to instantiate the action plugin.

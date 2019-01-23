@@ -11,7 +11,7 @@ use Symfony\Component\HttpKernel\KernelEvents;
  *
  * @group RulesEvent
  */
-class EventIntegrationTest extends RulesDrupalTestBase {
+class EventIntegrationTest extends RulesKernelTestBase {
 
   /**
    * The entity storage for Rules config entities.

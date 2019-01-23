@@ -7,14 +7,14 @@ use Drupal\field\Entity\FieldConfig;
 use Drupal\field\Entity\FieldStorageConfig;
 use Drupal\rules\Context\ContextDefinition;
 use Drupal\rules\Engine\RulesComponent;
-use Drupal\Tests\rules\Kernel\RulesDrupalTestBase;
+use Drupal\Tests\rules\Kernel\RulesKernelTestBase;
 
 /**
  * Tests that data selector autocomplete results work correctly.
  *
  * @group Rules
  */
-class AutocompleteTest extends RulesDrupalTestBase {
+class AutocompleteTest extends RulesKernelTestBase {
 
   /**
    * {@inheritdoc}

@@ -14,7 +14,7 @@ use Drupal\user\Entity\User;
  *
  * @group Rules
  */
-class CoreIntegrationTest extends RulesDrupalTestBase {
+class CoreIntegrationTest extends RulesKernelTestBase {
 
   /**
    * Modules to enable.

@@ -11,7 +11,7 @@ use Drupal\rules\Engine\RulesComponent;
  *
  * @group Rules
  */
-class TokenIntegrationTest extends RulesDrupalTestBase {
+class TokenIntegrationTest extends RulesKernelTestBase {
 
   /**
    * Tests that date tokens are formatted correctly.
