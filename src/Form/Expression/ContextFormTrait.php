@@ -108,23 +108,25 @@ trait ContextFormTrait {
    */
   protected function getContextConfigFromFormValues(FormStateInterface $form_state, array $context_definitions) {
     $context_config = ContextConfig::create();
-    foreach ($form_state->getValue('context') as $context_name => $value) {
-      if ($form_state->get("context_$context_name") == 'selector') {
-        $context_config->map($context_name, $value['setting']);
-      }
-      else {
-        // Each line of the textarea is one value for multiple contexts.
-        if ($context_definitions[$context_name]->isMultiple()) {
-          $values = explode("\n", $value['setting']);
-          $context_config->setValue($context_name, $values);
+    if ($form_state->hasValue('context')) {
+      foreach ($form_state->getValue('context') as $context_name => $value) {
+        if ($form_state->get("context_$context_name") == 'selector') {
+          $context_config->map($context_name, $value['setting']);
         }
         else {
-          $context_config->setValue($context_name, $value['setting']);
-        }
-        // For now, always add in the token context processor - if it's present.
-        // @todo: Improve this in https://www.drupal.org/node/2804035.
-        if ($this->getDataProcessorManager()->getDefinition('rules_tokens')) {
-          $context_config->process($context_name, 'rules_tokens');
+          // Each line of the textarea is one value for multiple contexts.
+          if ($context_definitions[$context_name]->isMultiple()) {
+            $values = explode("\n", $value['setting']);
+            $context_config->setValue($context_name, $values);
+          }
+          else {
+            $context_config->setValue($context_name, $value['setting']);
+          }
+          // For now, always add in the token context processor if it's present.
+          // @todo Improve this in https://www.drupal.org/node/2804035.
+          if ($this->getDataProcessorManager()->getDefinition('rules_tokens')) {
+            $context_config->process($context_name, 'rules_tokens');
+          }
         }
       }
     }

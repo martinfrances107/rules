@@ -14,7 +14,7 @@ class UiPageTest extends RulesBrowserTestBase {
    *
    * @var array
    */
-  public static $modules = ['rules'];
+  public static $modules = ['rules', 'rules_test'];
 
   /**
    * We use the minimal profile because we want to test local action links.
@@ -113,7 +113,24 @@ class UiPageTest extends RulesBrowserTestBase {
   }
 
   /**
-   * Tests that an action with a multiple context can be confugured.
+   * Tests that a condition with no context can be configured.
+   */
+  public function testNoContextCondition() {
+    // Setup a rule with one condition.
+    $this->testCreateReactionRule();
+
+    $this->clickLink('Add condition');
+    // The rules_test_true condition does not define context in its annotation.
+    $this->fillField('Condition', 'rules_test_true');
+    $this->pressButton('Continue');
+    // Pressing 'Save' will generate an exception and the test will fail if
+    // Rules does not support conditions without a context.
+    // Exception: Warning: Invalid argument supplied for foreach().
+    $this->pressButton('Save');
+  }
+
+  /**
+   * Tests that an action with a multiple context can be configured.
    */
   public function testMultipleContextAction() {
     $account = $this->drupalCreateUser(['administer rules']);

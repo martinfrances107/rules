@@ -10,6 +10,7 @@ use Drupal\rules\Core\RulesConditionBase;
  * @Condition(
  *   id = "rules_test_provider",
  *   label = @Translation("Test condition provider"),
+ *   category = @Translation("Tests"),
  *   provides = {
  *     "provided_text" = @ContextDefinition("string",
  *       label = @Translation("Provided text")
