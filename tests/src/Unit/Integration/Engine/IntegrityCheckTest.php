@@ -2,6 +2,7 @@
 
 namespace Drupal\Tests\rules\Unit\Integration\Engine;
 
+use Drupal\Core\Messenger\MessengerInterface;
 use Drupal\rules\Context\ContextConfig;
 use Drupal\rules\Context\ContextDefinition;
 use Drupal\rules\Engine\RulesComponent;
@@ -408,7 +409,7 @@ class IntegrityCheckTest extends RulesEntityIntegrationTestBase {
     );
     $rule->addAction('rules_system_message', ContextConfig::create()
       ->map('message', 'variable_added')
-      ->setValue('type', 'status')
+      ->setValue('type', MessengerInterface::TYPE_STATUS)
     );
     // The message action requires a string, thus if the context is not refined
     // it will end up as "any" and integrity check would fail.

@@ -64,7 +64,7 @@ class ConfigEntityDefaultsTest extends RulesKernelTestBase {
       ->execute();
 
     // Test that the action was executed correctly.
-    $messages = drupal_get_messages();
+    $messages = $this->container->get('messenger')->all();
     $message_string = isset($messages['status'][0]) ? (string) $messages['status'][0] : NULL;
     $this->assertEquals($message_string, 'test@example.com');
 

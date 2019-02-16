@@ -24,6 +24,7 @@ use Drupal\typed_data\DataFetcher;
 use Drupal\typed_data\DataFilterManager;
 use Drupal\typed_data\PlaceholderResolver;
 use Drupal\Tests\UnitTestCase;
+use Drupal\Tests\rules\Unit\TestMessenger;
 use Prophecy\Argument;
 
 /**
@@ -111,6 +112,8 @@ abstract class RulesIntegrationTestBase extends UnitTestCase {
   protected $enabledModules;
 
   /**
+   * The Drupal service container.
+   *
    * @var \Drupal\Core\DependencyInjection\Container
    */
   protected $container;
@@ -142,6 +145,13 @@ abstract class RulesIntegrationTestBase extends UnitTestCase {
    * @var \Drupal\typed_data\DataFilterManager
    */
   protected $dataFilterManager;
+
+  /**
+   * The messenger service.
+   *
+   * @var \Drupal\Core\Messenger\MessengerInterface
+   */
+  protected $messenger;
 
   /**
    * {@inheritdoc}
@@ -213,6 +223,7 @@ abstract class RulesIntegrationTestBase extends UnitTestCase {
     $this->entityTypeBundleInfo->getBundleInfo()->willReturn([]);
 
     $this->dataFetcher = new DataFetcher();
+    $this->messenger = new TestMessenger();
 
     $this->dataFilterManager = new DataFilterManager($this->namespaces, $this->moduleHandler->reveal());
     $this->placeholderResolver = new PlaceholderResolver($this->dataFetcher, $this->dataFilterManager);
@@ -227,6 +238,7 @@ abstract class RulesIntegrationTestBase extends UnitTestCase {
     $container->set('plugin.manager.condition', $this->conditionManager);
     $container->set('plugin.manager.rules_expression', $this->rulesExpressionManager);
     $container->set('plugin.manager.rules_data_processor', $this->rulesDataProcessorManager);
+    $container->set('messenger', $this->messenger);
     $container->set('typed_data_manager', $this->typedDataManager);
     $container->set('string_translation', $this->getStringTranslationStub());
     $container->set('uuid', $uuid_service);

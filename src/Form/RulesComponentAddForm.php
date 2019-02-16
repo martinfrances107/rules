@@ -43,7 +43,7 @@ class RulesComponentAddForm extends RulesComponentFormBase {
   public function save(array $form, FormStateInterface $form_state) {
     parent::save($form, $form_state);
 
-    drupal_set_message($this->t('Component %label has been created.', ['%label' => $this->entity->label()]));
+    $this->messenger()->addMessage($this->t('Component %label has been created.', ['%label' => $this->entity->label()]));
     $form_state->setRedirect('entity.rules_component.edit_form', ['rules_component' => $this->entity->id()]);
   }
 
