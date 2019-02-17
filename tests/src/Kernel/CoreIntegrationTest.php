@@ -2,6 +2,7 @@
 
 namespace Drupal\Tests\rules\Kernel;
 
+use Drupal\Core\Messenger\MessengerInterface;
 use Drupal\node\Entity\Node;
 use Drupal\rules\Context\ContextConfig;
 use Drupal\rules\Context\ContextDefinition;
@@ -156,8 +157,8 @@ class CoreIntegrationTest extends RulesKernelTestBase {
       ->setContextValue('type', 'status')
       ->execute();
 
-    $messages = drupal_set_message();
-    $this->assertEquals((string) $messages['status'][0], 'Hello klausi!');
+    $messages = $this->messenger->all();
+    $this->assertEquals((string) $messages[MessengerInterface::TYPE_STATUS][0], 'Hello klausi!');
   }
 
   /**
@@ -199,8 +200,8 @@ class CoreIntegrationTest extends RulesKernelTestBase {
       ->setContextValue('type', 'status')
       ->execute();
 
-    $messages = drupal_set_message();
-    $this->assertEquals((string) $messages['status'][0], 'The node was created in the year 1970');
+    $messages = $this->messenger->all();
+    $this->assertEquals((string) $messages[MessengerInterface::TYPE_STATUS][0], 'The node was created in the year 1970');
   }
 
   /**
@@ -312,8 +313,8 @@ class CoreIntegrationTest extends RulesKernelTestBase {
 
     // Test using global context during execution.
     $component->execute();
-    $messages = drupal_set_message();
-    $this->assertEquals((string) $messages['status'][0], 'hubert');
+    $messages = $this->messenger->all();
+    $this->assertEquals((string) $messages[MessengerInterface::TYPE_STATUS][0], 'hubert');
   }
 
 }

@@ -38,6 +38,13 @@ abstract class RulesKernelTestBase extends KernelTestBase {
   protected $logger;
 
   /**
+   * Rules logger.
+   *
+   * @var \Drupal\Core\Messenger\MessengerInterface
+   */
+  protected $messenger;
+
+  /**
    * Modules to enable.
    *
    * @var array
@@ -64,6 +71,7 @@ abstract class RulesKernelTestBase extends KernelTestBase {
     $this->expressionManager = $this->container->get('plugin.manager.rules_expression');
     $this->conditionManager = $this->container->get('plugin.manager.condition');
     $this->typedDataManager = $this->container->get('typed_data_manager');
+    $this->messenger = $this->container->get('messenger');
   }
 
   /**

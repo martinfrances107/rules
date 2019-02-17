@@ -2,6 +2,7 @@
 
 namespace Drupal\Tests\rules\Kernel;
 
+use Drupal\Core\Messenger\MessengerInterface;
 use Drupal\rules\Context\ContextConfig;
 use Drupal\rules\Context\ContextDefinition;
 use Drupal\rules\Engine\RulesComponent;
@@ -34,11 +35,11 @@ class TokenIntegrationTest extends RulesKernelTestBase {
       ->setContextValue('date', REQUEST_TIME)
       ->execute();
 
-    $messages = drupal_set_message();
+    $messages = $this->messenger->all();
     /** @var \Drupal\Core\Datetime\DateFormatterInterface $date_formatter */
     $date_formatter = $this->container->get('date.formatter');
     $date = $date_formatter->format(REQUEST_TIME, 'custom', 'Y-m');
-    $this->assertEquals("The date is $date!", (string) $messages['status'][0]);
+    $this->assertEquals("The date is $date!", (string) $messages[MessengerInterface::TYPE_STATUS][0]);
   }
 
 }

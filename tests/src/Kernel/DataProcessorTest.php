@@ -2,6 +2,7 @@
 
 namespace Drupal\Tests\rules\Kernel;
 
+use Drupal\Core\Messenger\MessengerInterface;
 use Drupal\rules\Context\ContextDefinition;
 use Drupal\rules\Context\ContextConfig;
 use Drupal\rules\Engine\RulesComponent;
@@ -43,10 +44,10 @@ class DataProcessorTest extends RulesKernelTestBase {
 
     $component->execute();
 
-    $messages = drupal_set_message();
+    $messages = $this->messenger->all();
     // The original value was 1 and the processor adds 1, so the result should
     // be 2.
-    $this->assertEquals((string) $messages['status'][0], '2');
+    $this->assertEquals((string) $messages[MessengerInterface::TYPE_STATUS][0], '2');
   }
 
 }
