@@ -59,7 +59,7 @@ class EntityPathAliasCreateTest extends RulesEntityIntegrationTestBase {
    */
   public function testActionExecutionWithUnsavedEntity() {
     // Test that the alias is only saved once.
-    $this->aliasStorage->save('test/1', 'about', 'en')->shouldBeCalledTimes(1);
+    $this->aliasStorage->save('/test/1', '/about', 'en')->shouldBeCalledTimes(1);
 
     $entity = $this->getMockEntity();
     $entity->isNew()->willReturn(TRUE)->shouldBeCalledTimes(1);
@@ -68,7 +68,7 @@ class EntityPathAliasCreateTest extends RulesEntityIntegrationTestBase {
     $entity->save()->shouldBeCalledTimes(1);
 
     $this->action->setContextValue('entity', $entity->reveal())
-      ->setContextValue('alias', 'about');
+      ->setContextValue('alias', '/about');
 
     $this->action->execute();
   }
@@ -80,7 +80,7 @@ class EntityPathAliasCreateTest extends RulesEntityIntegrationTestBase {
    */
   public function testActionExecutionWithSavedEntity() {
     // Test that the alias is only saved once.
-    $this->aliasStorage->save('test/1', 'about', 'en')->shouldBeCalledTimes(1);
+    $this->aliasStorage->save('/test/1', '/about', 'en')->shouldBeCalledTimes(1);
 
     $entity = $this->getMockEntity();
     $entity->isNew()->willReturn(FALSE)->shouldBeCalledTimes(1);
@@ -89,7 +89,7 @@ class EntityPathAliasCreateTest extends RulesEntityIntegrationTestBase {
     $entity->save()->shouldNotBeCalled();
 
     $this->action->setContextValue('entity', $entity->reveal())
-      ->setContextValue('alias', 'about');
+      ->setContextValue('alias', '/about');
 
     $this->action->execute();
   }

@@ -17,7 +17,8 @@ use Symfony\Component\DependencyInjection\ContainerInterface;
  *   category = @Translation("Path"),
  *   context = {
  *     "path" = @ContextDefinition("string",
- *       label = @Translation("Path")
+ *       label = @Translation("Path"),
+ *       description = @Translation("Specifies the existing path you wish to check. For example, '/node/28' or '/forum/1'.")
  *     ),
  *     "language" = @ContextDefinition("language",
  *       label = @Translation("Language"),

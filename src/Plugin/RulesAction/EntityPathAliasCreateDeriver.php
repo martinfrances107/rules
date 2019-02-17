@@ -5,10 +5,10 @@ namespace Drupal\rules\Plugin\RulesAction;
 use Drupal\Component\Plugin\Derivative\DeriverBase;
 use Drupal\Core\Entity\ContentEntityTypeInterface;
 use Drupal\Core\Entity\EntityTypeManagerInterface;
-use Drupal\Core\Plugin\Context\ContextDefinition;
 use Drupal\Core\Plugin\Discovery\ContainerDeriverInterface;
 use Drupal\Core\StringTranslation\StringTranslationTrait;
 use Drupal\Core\StringTranslation\TranslationInterface;
+use Drupal\rules\Context\ContextDefinition;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 
 /**
@@ -68,7 +68,7 @@ class EntityPathAliasCreateDeriver extends DeriverBase implements ContainerDeriv
           'alias' => ContextDefinition::create('string')
             ->setLabel($this->t('Path alias'))
             ->setRequired(TRUE)
-            ->setDescription($this->t("Specify an alternative path by which the content can be accessed. For example, 'about' for an about page. Use a relative path and do not add a trailing slash.")),
+            ->setDescription($this->t("Specify an alternative path by which the content can be accessed. For example, '/about' for an about page. Use an absolute path and do not add a trailing slash.")),
         ],
         'provides' => [],
       ] + $base_plugin_definition;

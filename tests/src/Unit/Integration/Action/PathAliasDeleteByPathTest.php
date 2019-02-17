@@ -53,9 +53,9 @@ class PathAliasDeleteByPathTest extends RulesIntegrationTestBase {
    */
   public function testActionExecution() {
 
-    $path = 'node/1';
+    $path = '/node/1';
 
-    $this->aliasStorage->delete(['path' => $path])->shouldBeCalledTimes(1);
+    $this->aliasStorage->delete(['source' => $path])->shouldBeCalledTimes(1);
 
     $this->action
       ->setContextValue('path', $path);

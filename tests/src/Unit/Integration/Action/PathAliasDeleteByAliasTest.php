@@ -52,7 +52,7 @@ class PathAliasDeleteByAliasTest extends RulesIntegrationTestBase {
    * @covers ::execute
    */
   public function testActionExecution() {
-    $alias = 'about/team';
+    $alias = '/about/team';
 
     $this->aliasStorage->delete(['alias' => $alias])->shouldBeCalledTimes(1);
 

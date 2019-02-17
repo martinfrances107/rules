@@ -18,7 +18,7 @@ use Symfony\Component\DependencyInjection\ContainerInterface;
  *   context = {
  *     "alias" = @ContextDefinition("string",
  *       label = @Translation("Path alias"),
- *       description = @Translation("Specify the path alias to check for. For example, 'about' for an about page.")
+ *       description = @Translation("Specify the path alias to check for. For example, '/about' for an about page.")
  *     ),
  *     "language" = @ContextDefinition("language",
  *       label = @Translation("Language"),
@@ -82,8 +82,8 @@ class PathAliasExists extends RulesConditionBase implements ContainerFactoryPlug
    *   exists).
    */
   protected function doEvaluate($alias, LanguageInterface $language = NULL) {
-    $lang_code = is_null($language) ? NULL : $language->getId();
-    $path = $this->aliasManager->getPathByAlias($alias, $lang_code);
+    $langcode = is_null($language) ? NULL : $language->getId();
+    $path = $this->aliasManager->getPathByAlias($alias, $langcode);
     return $path != $alias;
   }
 

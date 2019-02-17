@@ -55,16 +55,16 @@ class PathHasAliasTest extends RulesIntegrationTestBase {
    * @covers ::evaluate
    */
   public function testConditionEvaluationPathWithAlias() {
-    $this->aliasManager->getAliasByPath('path-with-alias', NULL)
-      ->willReturn('alias-for-path')
+    $this->aliasManager->getAliasByPath('/path-with-alias', NULL)
+      ->willReturn('/alias-for-path')
       ->shouldBeCalledTimes(1);
 
-    $this->aliasManager->getAliasByPath('path-with-alias', 'en')
-      ->willReturn('alias-for-path')
+    $this->aliasManager->getAliasByPath('/path-with-alias', 'en')
+      ->willReturn('/alias-for-path')
       ->shouldBeCalledTimes(1);
 
     // First, only set the path context.
-    $this->condition->setContextValue('path', 'path-with-alias');
+    $this->condition->setContextValue('path', '/path-with-alias');
 
     // Test without language context set.
     $this->assertTrue($this->condition->evaluate());
@@ -80,16 +80,16 @@ class PathHasAliasTest extends RulesIntegrationTestBase {
    * @covers ::evaluate
    */
   public function testConditionEvaluationPathWithoutAlias() {
-    $this->aliasManager->getAliasByPath('path-without-alias', NULL)
-      ->willReturn('path-without-alias')
+    $this->aliasManager->getAliasByPath('/path-without-alias', NULL)
+      ->willReturn('/path-without-alias')
       ->shouldBeCalledTimes(1);
 
-    $this->aliasManager->getAliasByPath('path-without-alias', 'en')
-      ->willReturn('path-without-alias')
+    $this->aliasManager->getAliasByPath('/path-without-alias', 'en')
+      ->willReturn('/path-without-alias')
       ->shouldBeCalledTimes(1);
 
     // First, only set the path context.
-    $this->condition->setContextValue('path', 'path-without-alias');
+    $this->condition->setContextValue('path', '/path-without-alias');
 
     // Test without language context set.
     $this->assertFalse($this->condition->evaluate());
