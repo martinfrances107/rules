@@ -13,7 +13,7 @@ class DataSetTest extends RulesIntegrationTestBase {
   /**
    * The action to be tested.
    *
-   * @var RulesActionInterface
+   * @var \Drupal\rules\Core\RulesActionInterface
    */
   protected $action;
 

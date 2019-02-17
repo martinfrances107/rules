@@ -173,7 +173,7 @@ abstract class RulesIntegrationTestBase extends UnitTestCase {
         return [$arguments[0], $enabled_modules[$arguments[0]]];
       });
 
-    // Wed don't care about alter() calls on the module handler.
+    // We don't care about alter() calls on the module handler.
     $this->moduleHandler->alter(Argument::any(), Argument::any(), Argument::any(), Argument::any())
       ->willReturn(NULL);
 

@@ -14,7 +14,7 @@ class RulesLoggerChannel extends LoggerChannel {
   /**
    * A configuration object with rules settings.
    *
-   * @var ImmutableConfig
+   * @var \Drupal\Core\Config\ImmutableConfig
    */
   protected $config;
 

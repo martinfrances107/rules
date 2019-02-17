@@ -32,7 +32,7 @@ class RulesComponentActionDeriver extends DeriverBase implements ContainerDerive
   protected $expressionManager;
 
   /**
-   * Contructor.
+   * Constructor.
    */
   public function __construct(EntityStorageInterface $storage, ExpressionManagerInterface $expression_manager) {
     $this->storage = $storage;
