@@ -15,7 +15,7 @@ use Drupal\rules\Core\RulesConditionBase;
  *   context = {
  *     "node" = @ContextDefinition("entity:node",
  *       label = @Translation("Node")
- *     )
+ *     ),
  *   }
  * )
  *

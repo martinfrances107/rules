@@ -20,7 +20,7 @@ use Drupal\rules\Core\RulesConditionBase;
  *     "field" = @ContextDefinition("string",
  *       label = @Translation("Field"),
  *       description = @Translation("The name of the field to check for.")
- *     )
+ *     ),
  *   }
  * )
  *

@@ -20,7 +20,7 @@ use Drupal\Core\Entity\EntityInterface;
  *     "item" = @ContextDefinition("any",
  *       label = @Translation("Item"),
  *       description = @Translation("The item to check for.")
- *     )
+ *     ),
  *   }
  * )
  *

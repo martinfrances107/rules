@@ -49,7 +49,7 @@ class UserRoleAddTest extends RulesEntityIntegrationTestBase {
 
     $account->hasRole('administrator')->willReturn(FALSE);
     $account->addRole('administrator')->shouldBeCalledTimes(1);
-    // We do noe expect call of the 'save' method because user should be
+    // We do not expect to call the 'save' method because the user should be
     // auto-saved later.
     $account->save()->shouldNotBeCalled();
 

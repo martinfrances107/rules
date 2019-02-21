@@ -20,13 +20,13 @@ use Drupal\rules\Exception\InvalidArgumentException;
  *     "rounding_behavior" = @ContextDefinition("string",
  *       label = @Translation("Rounding behavior"),
  *       default_value = NULL,
- *       required = false
- *     )
+ *       required = FALSE
+ *     ),
  *   },
  *   provides = {
  *     "conversion_result" = @ContextDefinition("any",
  *        label = @Translation("Conversion result")
- *      )
+ *      ),
  *   }
  * )
  * @todo Add rounding_behaviour default value "round".

@@ -23,7 +23,7 @@ use Drupal\rules\Core\RulesConditionBase;
  *     "value" = @ContextDefinition("integer",
  *       label = @Translation("Count"),
  *       description = @Translation("The count to compare the data count with.")
- *     )
+ *     ),
  *   }
  * )
  *

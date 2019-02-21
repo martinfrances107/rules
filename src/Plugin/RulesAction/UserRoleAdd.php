@@ -20,7 +20,7 @@ use Drupal\user\UserInterface;
  *     "roles" = @ContextDefinition("entity:user_role",
  *       label = @Translation("Roles"),
  *       multiple = TRUE
- *     )
+ *     ),
  *   }
  * )
  *

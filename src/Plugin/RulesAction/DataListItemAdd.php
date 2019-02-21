@@ -31,7 +31,7 @@ use Drupal\rules\Core\RulesActionBase;
  *       description = @Translation("Position to insert the item."),
  *       default_value = "end",
  *       required = FALSE
- *     )
+ *     ),
  *   }
  * )
  *

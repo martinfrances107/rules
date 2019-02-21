@@ -19,8 +19,8 @@ use Drupal\user\UserInterface;
  *     ),
  *     "email_type" = @ContextDefinition("string",
  *       label = @Translation("E-mail type"),
- *       description = @Translation("The type of the e-mail to send."),
- *     )
+ *       description = @Translation("The type of the e-mail to send.")
+ *     ),
  *   }
  * )
  *

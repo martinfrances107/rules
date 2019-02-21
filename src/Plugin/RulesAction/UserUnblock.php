@@ -16,7 +16,7 @@ use Drupal\user\UserInterface;
  *     "user" = @ContextDefinition("entity:user",
  *       label = @Translation("User"),
  *       description = @Translation("Specifies the user, that should be unblocked.")
- *     )
+ *     ),
  *   }
  * )
  *

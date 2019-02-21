@@ -22,7 +22,7 @@ use Drupal\rules\Core\RulesActionBase;
  *       description = @Translation("Usually saving is postponed till the end of the evaluation, so that multiple saves can be fold into one. If this set, saving is forced to happen immediately."),
  *       default_value = FALSE,
  *       required = FALSE
- *     )
+ *     ),
  *   }
  * )
  *

@@ -20,27 +20,27 @@ use Symfony\Component\DependencyInjection\ContainerInterface;
  *     "to" = @ContextDefinition("email",
  *       label = @Translation("Send to"),
  *       description = @Translation("Email address(es) drupal will send an email to."),
- *       multiple = TRUE,
+ *       multiple = TRUE
  *     ),
  *     "subject" = @ContextDefinition("string",
  *       label = @Translation("Subject"),
- *       description = @Translation("The email's subject."),
+ *       description = @Translation("The email's subject.")
  *     ),
  *     "message" = @ContextDefinition("string",
  *       label = @Translation("Message"),
- *       description = @Translation("The email's message body."),
+ *       description = @Translation("The email's message body.")
  *     ),
  *     "reply" = @ContextDefinition("email",
  *       label = @Translation("Reply to"),
  *       description = @Translation("The mail's reply-to address. Leave it empty to use the site-wide configured address."),
  *       default_value = NULL,
- *       required = FALSE,
+ *       required = FALSE
  *     ),
  *     "language" = @ContextDefinition("language",
  *       label = @Translation("Language"),
  *       description = @Translation("If specified, the language used for getting the mail message and subject."),
  *       default_value = NULL,
- *       required = FALSE,
+ *       required = FALSE
  *     ),
  *   }
  * )

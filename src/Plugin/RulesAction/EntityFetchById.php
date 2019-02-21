@@ -23,12 +23,12 @@ use Symfony\Component\DependencyInjection\ContainerInterface;
  *     "entity_id" = @ContextDefinition("integer",
  *       label = @Translation("Identifier"),
  *       description = @Translation("The id of the entity that should be fetched.")
- *     )
+ *     ),
  *   },
  *   provides = {
  *     "entity_fetched" = @ContextDefinition("entity",
  *       label = @Translation("Fetched entity")
- *     )
+ *     ),
  *   }
  * )
  *

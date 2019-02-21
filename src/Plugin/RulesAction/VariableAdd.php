@@ -23,7 +23,7 @@ use Drupal\rules\Core\RulesActionBase;
  *   provides = {
  *     "variable_added" = @ContextDefinition("any",
  *        label = @Translation("Added variable")
- *      )
+ *      ),
  *    }
  * )
  */

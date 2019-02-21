@@ -23,12 +23,12 @@ use Drupal\rules\Core\RulesActionBase;
  *     "input_2" = @ContextDefinition("float",
  *       label = @Translation("Input value 2"),
  *       description = @Translation("The second input value for the calculation.")
- *     )
+ *     ),
  *   },
  *   provides = {
  *     "result" = @ContextDefinition("float",
  *       label = @Translation("Calculated result")
- *     )
+ *     ),
  *   }
  * )
  *

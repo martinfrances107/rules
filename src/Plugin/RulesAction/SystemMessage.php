@@ -28,7 +28,7 @@ use Symfony\Component\DependencyInjection\ContainerInterface;
  *       description = @Translation("If disabled and the message has been already shown, then the message won't be repeated."),
  *       default_value = NULL,
  *       required = FALSE
- *     )
+ *     ),
  *   }
  * )
  *

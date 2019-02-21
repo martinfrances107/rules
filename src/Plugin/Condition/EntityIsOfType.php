@@ -20,7 +20,7 @@ use Drupal\rules\Core\RulesConditionBase;
  *     "type" = @ContextDefinition("string",
  *       label = @Translation("Type"),
  *       description = @Translation("The entity type specified by the condition.")
- *     )
+ *     ),
  *   }
  * )
  *

@@ -29,7 +29,7 @@ use Symfony\Component\DependencyInjection\ContainerInterface;
  *       description = @Translation("If specified, the language for which the path alias applies."),
  *       default_value = NULL,
  *       required = FALSE
- *     )
+ *     ),
  *   }
  * )
  *

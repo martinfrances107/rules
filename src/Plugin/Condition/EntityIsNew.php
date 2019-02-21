@@ -16,7 +16,7 @@ use Drupal\rules\Core\RulesConditionBase;
  *     "entity" = @ContextDefinition("entity",
  *       label = @Translation("Entity"),
  *       description = @Translation("Specifies the entity for which to evaluate the condition.")
- *     )
+ *     ),
  *   }
  * )
  *

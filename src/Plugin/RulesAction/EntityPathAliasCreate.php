@@ -13,7 +13,7 @@ use Symfony\Component\DependencyInjection\ContainerInterface;
  *
  * @RulesAction(
  *   id = "rules_entity_path_alias_create",
- *   deriver = "Drupal\rules\Plugin\RulesAction\EntityPathAliasCreateDeriver",
+ *   deriver = "Drupal\rules\Plugin\RulesAction\EntityPathAliasCreateDeriver"
  * )
  *
  * @todo: Add access callback information from Drupal 7.

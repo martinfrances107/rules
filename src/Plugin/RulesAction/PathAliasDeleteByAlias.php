@@ -18,7 +18,7 @@ use Symfony\Component\DependencyInjection\ContainerInterface;
  *     "alias" = @ContextDefinition("string",
  *       label = @Translation("Existing system path alias"),
  *       description = @Translation("Specifies the existing path alias you wish to delete. For example, '/about/team'. Use an absolute path and do not add a trailing slash.")
- *     )
+ *     ),
  *   }
  * )
  *

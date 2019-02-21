@@ -28,7 +28,7 @@ use Symfony\Component\DependencyInjection\ContainerInterface;
  *     ),
  *     "user" = @ContextDefinition("entity:user",
  *       label = @Translation("User")
- *     )
+ *     ),
  *   }
  * )
  *

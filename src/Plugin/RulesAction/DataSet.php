@@ -23,7 +23,7 @@ use Drupal\rules\Core\RulesActionBase;
  *       description = @Translation("The new value to set for the specified data."),
  *       default_value = NULL,
  *       required = FALSE
- *     )
+ *     ),
  *   }
  * )
  *

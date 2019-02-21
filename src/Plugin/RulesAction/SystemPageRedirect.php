@@ -19,7 +19,7 @@ use Symfony\Component\HttpFoundation\RequestStack;
  *   context = {
  *     "url" = @ContextDefinition("string",
  *       label = @Translation("URL"),
- *       description = @Translation("A Drupal path, path alias, or external URL to redirect to. Enter (optional) queries after ? and (optional) anchor after #."),
+ *       description = @Translation("A Drupal path, path alias, or external URL to redirect to. Enter (optional) queries after ? and (optional) anchor after #.")
  *     ),
  *   }
  * )
