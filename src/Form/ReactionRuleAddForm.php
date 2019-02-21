@@ -52,8 +52,6 @@ class ReactionRuleAddForm extends RulesComponentFormBase {
    * {@inheritdoc}
    */
   public function form(array $form, FormStateInterface $form_state) {
-    $form = parent::form($form, $form_state);
-
     $event_definitions = $this->eventManager->getGroupedDefinitions();
     $options = [];
     foreach ($event_definitions as $group => $definitions) {
@@ -68,10 +66,10 @@ class ReactionRuleAddForm extends RulesComponentFormBase {
       '#title' => $this->t('React on event'),
       '#options' => $options,
       '#required' => TRUE,
-      '#description' => $this->t('Whenever the event occurs, rule evaluation is triggered.'),
+      '#description' => $this->t('Rule evaluation is triggered whenever the selected event occurs.'),
     ];
 
-    return $form;
+    return $form + parent::form($form, $form_state);
   }
 
   /**
