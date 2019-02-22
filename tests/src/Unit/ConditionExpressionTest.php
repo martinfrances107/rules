@@ -8,16 +8,16 @@ use Drupal\rules\Context\DataProcessorInterface;
 use Drupal\rules\Context\ContextConfig;
 use Drupal\rules\Context\DataProcessorManager;
 use Drupal\rules\Engine\ExecutionStateInterface;
-use Drupal\rules\Plugin\RulesExpression\RulesCondition;
+use Drupal\rules\Plugin\RulesExpression\ConditionExpression;
 use Drupal\rules\Core\RulesConditionInterface;
 use Drupal\Tests\UnitTestCase;
 use Prophecy\Argument;
 
 /**
- * @coversDefaultClass \Drupal\rules\Plugin\RulesExpression\RulesCondition
+ * @coversDefaultClass \Drupal\rules\Plugin\RulesExpression\ConditionExpression
  * @group Rules
  */
-class RulesConditionTest extends UnitTestCase {
+class ConditionExpressionTest extends UnitTestCase {
 
   /**
    * The mocked condition manager.
@@ -36,7 +36,7 @@ class RulesConditionTest extends UnitTestCase {
   /**
    * The condition object being tested.
    *
-   * @var \Drupal\rules\Plugin\RulesExpression\RulesCondition
+   * @var \Drupal\rules\Plugin\RulesExpression\ConditionExpression
    */
   protected $conditionExpression;
 
@@ -62,7 +62,7 @@ class RulesConditionTest extends UnitTestCase {
 
     $this->processorManager = $this->prophesize(DataProcessorManager::class);
 
-    $this->conditionExpression = new RulesCondition(
+    $this->conditionExpression = new ConditionExpression(
       ['condition_id' => 'test_condition'], '', [],
       $this->conditionManager->reveal(), $this->processorManager->reveal());
   }
@@ -75,7 +75,7 @@ class RulesConditionTest extends UnitTestCase {
       ->willReturn($this->trueCondition->reveal())
       ->shouldBeCalledTimes(1);
 
-    $condition = new RulesCondition([
+    $condition = new ConditionExpression([
       'condition_id' => 'test_condition',
     ] + ContextConfig::create()
       // We don't care about the data processor plugin name and
@@ -138,7 +138,7 @@ class RulesConditionTest extends UnitTestCase {
       ->shouldBeCalledTimes(1);
 
     // Create a condition which is negated.
-    $condition_expression = new RulesCondition([
+    $condition_expression = new ConditionExpression([
       'condition_id' => 'test_condition',
       'negate' => TRUE,
     ], '', [], $this->conditionManager->reveal(), $this->processorManager->reveal());

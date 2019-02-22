@@ -4,20 +4,20 @@ namespace Drupal\Tests\rules\Unit;
 
 use Drupal\rules\Engine\ActionExpressionInterface;
 use Drupal\rules\Engine\ExecutionStateInterface;
-use Drupal\rules\Plugin\RulesExpression\ActionSet;
-use Drupal\rules\Plugin\RulesExpression\RulesAction;
+use Drupal\rules\Plugin\RulesExpression\ActionSetExpression;
+use Drupal\rules\Plugin\RulesExpression\ActionExpression;
 use Prophecy\Argument;
 
 /**
- * @coversDefaultClass \Drupal\rules\Plugin\RulesExpression\ActionSet
+ * @coversDefaultClass \Drupal\rules\Plugin\RulesExpression\ActionSetExpression
  * @group Rules
  */
-class ActionSetTest extends RulesUnitTestBase {
+class ActionSetExpressionTest extends RulesUnitTestBase {
 
   /**
    * The action set being tested.
    *
-   * @var \Drupal\rules\Plugin\RulesExpression\ActionSet
+   * @var \Drupal\rules\Plugin\RulesExpression\ActionSetExpression
    */
   protected $actionSet;
 
@@ -27,7 +27,7 @@ class ActionSetTest extends RulesUnitTestBase {
   protected function setUp() {
     parent::setUp();
 
-    $this->actionSet = new ActionSet([], '', [], $this->expressionManager->reveal());
+    $this->actionSet = new ActionSetExpression([], '', [], $this->expressionManager->reveal());
   }
 
   /**
@@ -67,7 +67,7 @@ class ActionSetTest extends RulesUnitTestBase {
     $this->testActionExpression->executeWithState(
       Argument::type(ExecutionStateInterface::class))->shouldBeCalledTimes(2);
 
-    $inner = new ActionSet([], '', [], $this->expressionManager->reveal());
+    $inner = new ActionSetExpression([], '', [], $this->expressionManager->reveal());
     $inner->addExpressionObject($this->testActionExpression->reveal());
 
     $this->actionSet->addExpressionObject($this->testActionExpression->reveal())
@@ -91,7 +91,7 @@ class ActionSetTest extends RulesUnitTestBase {
    */
   public function testDeletingAction() {
     $this->actionSet->addExpressionObject($this->testActionExpression->reveal());
-    $second_action = $this->prophesize(RulesAction::class);
+    $second_action = $this->prophesize(ActionExpression::class);
     $this->actionSet->addExpressionObject($second_action->reveal());
 
     // Get the UUID of the first action added.

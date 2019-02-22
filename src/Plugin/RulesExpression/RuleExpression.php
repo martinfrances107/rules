@@ -13,6 +13,7 @@ use Drupal\rules\Engine\ExecutionStateInterface;
 use Drupal\rules\Engine\ExpressionBase;
 use Drupal\rules\Engine\ExpressionInterface;
 use Drupal\rules\Engine\ExpressionManagerInterface;
+use Drupal\rules\Engine\RuleExpressionInterface;
 use Drupal\rules\Exception\InvalidExpressionException;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 
@@ -26,10 +27,10 @@ use Symfony\Component\DependencyInjection\ContainerInterface;
  * @RulesExpression(
  *   id = "rules_rule",
  *   label = @Translation("Rule"),
- *   form_class = "\Drupal\rules\Form\Expression\RuleForm"
+ *   form_class = "\Drupal\rules\Form\Expression\RuleExpressionForm"
  * )
  */
-class Rule extends ExpressionBase implements RuleInterface, ContainerFactoryPluginInterface {
+class RuleExpression extends ExpressionBase implements RuleExpressionInterface, ContainerFactoryPluginInterface {
 
   /**
    * List of conditions that must be met before actions are executed.

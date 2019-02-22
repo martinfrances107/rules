@@ -26,7 +26,7 @@ use Symfony\Component\DependencyInjection\ContainerInterface;
  *   form_class = "\Drupal\rules\Form\Expression\ConditionForm"
  * )
  */
-class RulesCondition extends ExpressionBase implements ConditionExpressionInterface, ContainerFactoryPluginInterface {
+class ConditionExpression extends ExpressionBase implements ConditionExpressionInterface, ContainerFactoryPluginInterface {
 
   use ContextHandlerIntegrityTrait;
 

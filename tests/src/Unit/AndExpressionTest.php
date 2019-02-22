@@ -4,14 +4,14 @@ namespace Drupal\Tests\rules\Unit;
 
 use Drupal\rules\Engine\ConditionExpressionInterface;
 use Drupal\rules\Engine\ExecutionStateInterface;
-use Drupal\rules\Plugin\RulesExpression\RulesAnd;
+use Drupal\rules\Plugin\RulesExpression\AndExpression;
 use Prophecy\Argument;
 
 /**
- * @coversDefaultClass \Drupal\rules\Plugin\RulesExpression\RulesAnd
+ * @coversDefaultClass \Drupal\rules\Plugin\RulesExpression\AndExpression
  * @group Rules
  */
-class RulesAndTest extends RulesUnitTestBase {
+class AndExpressionTest extends RulesUnitTestBase {
 
   /**
    * The 'and' condition container being tested.
@@ -26,7 +26,7 @@ class RulesAndTest extends RulesUnitTestBase {
   protected function setUp() {
     parent::setUp();
 
-    $this->and = new RulesAnd([], '', [], $this->expressionManager->reveal());
+    $this->and = new AndExpression([], '', [], $this->expressionManager->reveal());
   }
 
   /**

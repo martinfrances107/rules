@@ -1,17 +1,13 @@
 <?php
 
-namespace Drupal\rules\Plugin\RulesExpression;
+namespace Drupal\rules\Engine;
 
 use Drupal\rules\Context\ContextConfig;
-use Drupal\rules\Engine\ActionExpressionContainerInterface;
-use Drupal\rules\Engine\ConditionExpressionContainerInterface;
-use Drupal\rules\Engine\ActionExpressionInterface;
-use Drupal\rules\Engine\ExpressionContainerInterface;
 
 /**
  * Defines a rule.
  */
-interface RuleInterface extends ExpressionContainerInterface, ActionExpressionInterface {
+interface RuleExpressionInterface extends ExpressionContainerInterface, ActionExpressionInterface {
 
   /**
    * Creates a condition expression and adds it to the container.

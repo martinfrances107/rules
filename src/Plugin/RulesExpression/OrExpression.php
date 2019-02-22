@@ -13,7 +13,7 @@ use Drupal\rules\Engine\ExecutionStateInterface;
  *   label = @Translation("Condition set (OR)")
  * )
  */
-class RulesOr extends ConditionExpressionContainer {
+class OrExpression extends ConditionExpressionContainer {
 
   /**
    * {@inheritdoc}

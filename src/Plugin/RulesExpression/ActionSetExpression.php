@@ -14,7 +14,7 @@ use Drupal\rules\Engine\ExecutionStateInterface;
  *   form_class = "\Drupal\rules\Form\Expression\ActionContainerForm"
  * )
  */
-class ActionSet extends ActionExpressionContainer {
+class ActionSetExpression extends ActionExpressionContainer {
 
   /**
    * {@inheritdoc}

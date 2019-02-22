@@ -3,28 +3,28 @@
 namespace Drupal\rules\Form\Expression;
 
 use Drupal\Core\Form\FormStateInterface;
-use Drupal\rules\Plugin\RulesExpression\RuleInterface;
+use Drupal\rules\Engine\RuleExpressionInterface;
 
 /**
  * Form view structure for rule expressions.
  *
- * @see \Drupal\rules\Plugin\RulesExpression\Rule
+ * @see \Drupal\rules\Plugin\RulesExpression\RuleExpression
  */
-class RuleForm implements ExpressionFormInterface {
+class RuleExpressionForm implements ExpressionFormInterface {
 
   use ExpressionFormTrait;
 
   /**
    * The rule expression object this form is for.
    *
-   * @var \Drupal\rules\Plugin\RulesExpression\RuleInterface
+   * @var \Drupal\rules\Engine\RuleExpressionInterface
    */
   protected $rule;
 
   /**
    * Creates a new object of this class.
    */
-  public function __construct(RuleInterface $rule) {
+  public function __construct(RuleExpressionInterface $rule) {
     $this->rule = $rule;
   }
 

@@ -17,7 +17,7 @@ use Drupal\rules\Exception\IntegrityException;
  *   label = @Translation("Loop")
  * )
  */
-class RulesLoop extends ActionExpressionContainer {
+class LoopExpression extends ActionExpressionContainer {
 
   /**
    * {@inheritdoc}

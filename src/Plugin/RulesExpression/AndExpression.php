@@ -14,7 +14,7 @@ use Drupal\rules\Engine\ExecutionStateInterface;
  *   form_class = "\Drupal\rules\Form\Expression\ConditionContainerForm"
  * )
  */
-class RulesAnd extends ConditionExpressionContainer {
+class AndExpression extends ConditionExpressionContainer {
 
   /**
    * Returns whether there is a configured condition.

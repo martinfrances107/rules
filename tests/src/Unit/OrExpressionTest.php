@@ -4,14 +4,14 @@ namespace Drupal\Tests\rules\Unit;
 
 use Drupal\rules\Engine\ConditionExpressionInterface;
 use Drupal\rules\Engine\ExecutionStateInterface;
-use Drupal\rules\Plugin\RulesExpression\RulesOr;
+use Drupal\rules\Plugin\RulesExpression\OrExpression;
 use Prophecy\Argument;
 
 /**
- * @coversDefaultClass \Drupal\rules\Plugin\RulesExpression\RulesOr
+ * @coversDefaultClass \Drupal\rules\Plugin\RulesExpression\OrExpression
  * @group Rules
  */
-class RulesOrTest extends RulesUnitTestBase {
+class OrExpressionTest extends RulesUnitTestBase {
 
   /**
    * The 'or' condition container being tested.
@@ -26,7 +26,7 @@ class RulesOrTest extends RulesUnitTestBase {
   protected function setUp() {
     parent::setUp();
 
-    $this->or = new RulesOr([], '', [], $this->expressionManager->reveal());
+    $this->or = new OrExpression([], '', [], $this->expressionManager->reveal());
   }
 
   /**

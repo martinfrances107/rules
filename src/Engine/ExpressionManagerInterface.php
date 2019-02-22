@@ -23,7 +23,7 @@ interface ExpressionManagerInterface extends PluginManagerInterface {
    * @param array $configuration
    *   The configuration array to create the plugin instance with.
    *
-   * @return \Drupal\rules\Plugin\RulesExpression\RuleInterface
+   * @return \Drupal\rules\Engine\RuleExpressionInterface
    *   The created rule.
    */
   public function createRule(array $configuration = []);
@@ -34,7 +34,7 @@ interface ExpressionManagerInterface extends PluginManagerInterface {
    * @param array $configuration
    *   The configuration array to create the plugin instance with.
    *
-   * @return \Drupal\rules\Plugin\RulesExpression\ActionSet
+   * @return \Drupal\rules\Plugin\RulesExpression\ActionSetExpression
    *   The created action set.
    */
   public function createActionSet(array $configuration = []);

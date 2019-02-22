@@ -5,18 +5,18 @@ namespace Drupal\Tests\rules\Unit;
 use Drupal\rules\Engine\ConditionExpressionInterface;
 use Drupal\rules\Engine\ExecutionStateInterface;
 use Drupal\rules\Engine\ExpressionManagerInterface;
-use Drupal\rules\Plugin\RulesExpression\ActionSet;
-use Drupal\rules\Plugin\RulesExpression\Rule;
-use Drupal\rules\Plugin\RulesExpression\RulesAction;
-use Drupal\rules\Plugin\RulesExpression\RulesAnd;
-use Drupal\rules\Plugin\RulesExpression\RulesOr;
+use Drupal\rules\Plugin\RulesExpression\ActionSetExpression;
+use Drupal\rules\Plugin\RulesExpression\RuleExpression;
+use Drupal\rules\Plugin\RulesExpression\ActionExpression;
+use Drupal\rules\Plugin\RulesExpression\AndExpression;
+use Drupal\rules\Plugin\RulesExpression\OrExpression;
 use Prophecy\Argument;
 
 /**
- * @coversDefaultClass \Drupal\rules\Plugin\RulesExpression\Rule
+ * @coversDefaultClass \Drupal\rules\Plugin\RulesExpression\RuleExpression
  * @group Rules
  */
-class RuleTest extends RulesUnitTestBase {
+class RuleExpressionTest extends RulesUnitTestBase {
 
   /**
    * The rules expression plugin manager.
@@ -28,7 +28,7 @@ class RuleTest extends RulesUnitTestBase {
   /**
    * The rule being tested.
    *
-   * @var \Drupal\rules\Plugin\RulesExpression\RuleInterface
+   * @var \Drupal\rules\Engine\RuleExpressionInterface
    */
   protected $rule;
 
@@ -54,13 +54,13 @@ class RuleTest extends RulesUnitTestBase {
 
     $this->expressionManager = $this->prophesize(ExpressionManagerInterface::class);
 
-    $this->conditions = new RulesAnd([], 'rules_and', [], $this->expressionManager->reveal());
+    $this->conditions = new AndExpression([], 'rules_and', [], $this->expressionManager->reveal());
     $this->expressionManager->createInstance('rules_and', [])->willReturn($this->conditions);
 
-    $this->actions = new ActionSet([], 'rules_action_set', [], $this->expressionManager->reveal());
+    $this->actions = new ActionSetExpression([], 'rules_action_set', [], $this->expressionManager->reveal());
     $this->expressionManager->createInstance('rules_action_set', [])->willReturn($this->actions);
 
-    $this->rule = new Rule([], 'rules_rule', [], $this->expressionManager->reveal());
+    $this->rule = new RuleExpression([], 'rules_rule', [], $this->expressionManager->reveal());
   }
 
   /**
@@ -80,11 +80,11 @@ class RuleTest extends RulesUnitTestBase {
    * @covers ::getConditions
    */
   public function testSetConditionsGetConditions() {
-    $or = new RulesOr([], 'rules_or', [], $this->expressionManager->reveal());
+    $or = new OrExpression([], 'rules_or', [], $this->expressionManager->reveal());
     $this->rule->setConditions($or);
     $this->assertSame($or, $this->rule->getConditions());
 
-    $and = new RulesAnd([], 'rules_and', [], $this->expressionManager->reveal());
+    $and = new AndExpression([], 'rules_and', [], $this->expressionManager->reveal());
     $this->rule->setConditions($and);
     $this->assertSame($and, $this->rule->getConditions());
   }
@@ -96,7 +96,7 @@ class RuleTest extends RulesUnitTestBase {
    * @covers ::getActions
    */
   public function testSetActionsGetActions() {
-    $action_set = new ActionSet([], '', [], $this->expressionManager->reveal());
+    $action_set = new ActionSetExpression([], '', [], $this->expressionManager->reveal());
     $this->rule->setActions($action_set);
     $this->assertSame($action_set, $this->rule->getActions());
   }
@@ -182,11 +182,11 @@ class RuleTest extends RulesUnitTestBase {
     $this->testActionExpression->executeWithState(
       Argument::type(ExecutionStateInterface::class))->shouldBeCalledTimes(1);
 
-    $nested = new Rule([], 'rules_rule', [], $this->expressionManager->reveal());
+    $nested = new RuleExpression([], 'rules_rule', [], $this->expressionManager->reveal());
     // We need to replace the action and conditon container to not have the same
     // instances as in the outer rule.
-    $nested->setConditions(new RulesAnd([], 'rules_and', [], $this->expressionManager->reveal()));
-    $nested->setActions(new ActionSet([], 'rules_action_set', [], $this->expressionManager->reveal()));
+    $nested->setConditions(new AndExpression([], 'rules_and', [], $this->expressionManager->reveal()));
+    $nested->setActions(new ActionSetExpression([], 'rules_action_set', [], $this->expressionManager->reveal()));
 
     $nested->addExpressionObject($this->trueConditionExpression->reveal())
       ->addExpressionObject($this->testActionExpression->reveal());
@@ -222,7 +222,7 @@ class RuleTest extends RulesUnitTestBase {
     $this->rule->addExpressionObject($this->trueConditionExpression->reveal());
     $this->rule->addExpressionObject($this->falseConditionExpression->reveal());
     $this->rule->addExpressionObject($this->testActionExpression->reveal());
-    $second_action = $this->prophesize(RulesAction::class);
+    $second_action = $this->prophesize(ActionExpression::class);
     $second_action->getUuid()->willReturn('action_uuid2');
     $this->rule->addExpressionObject($second_action->reveal());
 

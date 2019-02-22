@@ -26,7 +26,7 @@ use Symfony\Component\DependencyInjection\ContainerInterface;
  *   form_class = "\Drupal\rules\Form\Expression\ActionForm"
  * )
  */
-class RulesAction extends ExpressionBase implements ContainerFactoryPluginInterface, ActionExpressionInterface {
+class ActionExpression extends ExpressionBase implements ContainerFactoryPluginInterface, ActionExpressionInterface {
 
   use ContextHandlerIntegrityTrait;
 
