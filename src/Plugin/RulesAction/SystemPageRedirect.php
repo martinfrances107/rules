@@ -48,7 +48,7 @@ class SystemPageRedirect extends RulesActionBase implements ContainerFactoryPlug
   protected $request;
 
   /**
-   * Constructs a PageRedirect object.
+   * Constructs a SystemPageRedirect object.
    *
    * @param array $configuration
    *   A configuration array containing information about the plugin instance.

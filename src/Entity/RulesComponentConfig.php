@@ -27,15 +27,15 @@ use Drupal\rules\Engine\RulesComponent;
  *     "form" = {
  *        "add" = "\Drupal\rules\Form\RulesComponentAddForm",
  *        "edit" = "\Drupal\rules\Form\RulesComponentEditForm",
- *        "delete" = "\Drupal\Core\Entity\EntityDeleteForm"
- *      }
+ *        "delete" = "\Drupal\Core\Entity\EntityDeleteForm",
+ *      },
  *   },
  *   admin_permission = "administer rules",
  *   config_prefix = "component",
  *   entity_keys = {
  *     "id" = "id",
  *     "label" = "label",
- *     "status" = "status"
+ *     "status" = "status",
  *   },
  *   config_export = {
  *     "id",

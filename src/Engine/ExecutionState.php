@@ -100,6 +100,10 @@ class ExecutionState implements ExecutionStateInterface {
    */
   public function getVariable($name) {
     if (!$this->hasVariable($name)) {
+      // @todo This crashes site in certain circumstances - for example if
+      // you're reacting on a "Drupal is initializing" event ... Need to handle
+      // a problem here gracefully - maybe disable the rule that caused the
+      // problem?
       throw new EvaluationException("Unable to get variable $name, it is not defined.");
     }
     return $this->variables[$name];

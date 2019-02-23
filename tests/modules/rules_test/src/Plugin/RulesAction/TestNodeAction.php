@@ -17,7 +17,7 @@ use Drupal\rules\Core\RulesActionBase;
  *     ),
  *     "title" = @ContextDefinition("string",
  *       label = @Translation("New title that should be set")
- *     )
+ *     ),
  *   }
  * )
  */

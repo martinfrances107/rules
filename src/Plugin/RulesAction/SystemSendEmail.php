@@ -63,7 +63,7 @@ class SystemSendEmail extends RulesActionBase implements ContainerFactoryPluginI
   protected $mailManager;
 
   /**
-   * Constructs a SendEmail object.
+   * Constructs a SystemSendEmail object.
    *
    * @param array $configuration
    *   A configuration array containing information about the plugin instance.

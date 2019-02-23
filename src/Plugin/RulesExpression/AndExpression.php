@@ -37,8 +37,8 @@ class AndExpression extends ConditionExpressionContainer {
         return FALSE;
       }
     }
-    // An empty AND should return FALSE, otherwise all conditions evaluated to
-    // TRUE and we return TRUE.
+    // An empty AND should return FALSE. Otherwise, if all conditions evaluate
+    // to TRUE we return TRUE.
     return !empty($this->conditions);
   }
 

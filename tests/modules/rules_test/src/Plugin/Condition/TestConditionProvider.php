@@ -14,7 +14,7 @@ use Drupal\rules\Core\RulesConditionBase;
  *   provides = {
  *     "provided_text" = @ContextDefinition("string",
  *       label = @Translation("Provided text")
- *     )
+ *     ),
  *   }
  * )
  */

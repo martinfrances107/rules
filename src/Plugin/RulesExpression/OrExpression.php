@@ -24,8 +24,8 @@ class OrExpression extends ConditionExpressionContainer {
         return TRUE;
       }
     }
-    // An empty OR should return TRUE, otherwise all conditions evaluated to
-    // FALSE and we return FALSE.
+    // An empty OR should return TRUE. Otherwise, if all conditions evaluate
+    // to FALSE we return FALSE.
     return empty($this->conditions);
   }
 

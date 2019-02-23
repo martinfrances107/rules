@@ -41,7 +41,7 @@ class RulesComponentAction extends RulesActionBase implements ContainerFactoryPl
   protected $saveLater = [];
 
   /**
-   * Constructs an EntityCreate object.
+   * Constructs a RulesComponentAction object.
    *
    * @param array $configuration
    *   A configuration array containing information about the plugin instance.

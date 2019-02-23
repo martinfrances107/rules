@@ -27,15 +27,15 @@ use Drupal\rules\Engine\RulesComponent;
  *     "form" = {
  *        "add" = "\Drupal\rules\Form\ReactionRuleAddForm",
  *        "edit" = "\Drupal\rules\Form\ReactionRuleEditForm",
- *        "delete" = "\Drupal\Core\Entity\EntityDeleteForm"
- *      }
+ *        "delete" = "\Drupal\Core\Entity\EntityDeleteForm",
+ *      },
  *   },
  *   admin_permission = "administer rules",
  *   config_prefix = "reaction",
  *   entity_keys = {
  *     "id" = "id",
  *     "label" = "label",
- *     "status" = "status"
+ *     "status" = "status",
  *   },
  *   config_export = {
  *     "id",
@@ -50,7 +50,7 @@ use Drupal\rules\Engine\RulesComponent;
  *     "collection" = "/admin/config/workflow/rules",
  *     "edit-form" = "/admin/config/workflow/rules/reactions/edit/{rules_reaction_rule}",
  *     "delete-form" = "/admin/config/workflow/rules/reactions/delete/{rules_reaction_rule}",
- *     "break-lock-form" = "/admin/config/workflow/rules/reactions/edit/break-lock/{rules_reaction_rule}"
+ *     "break-lock-form" = "/admin/config/workflow/rules/reactions/edit/break-lock/{rules_reaction_rule}",
  *   }
  * )
  */
@@ -235,7 +235,7 @@ class ReactionRuleConfig extends ConfigEntityBase implements RulesUiComponentPro
   }
 
   /**
-   * Gets fully qualified names of all events the rule is reacting on.
+   * Gets machine names of all events the rule is reacting on.
    *
    * @return string[]
    *   The array of fully qualified event names of the rule.

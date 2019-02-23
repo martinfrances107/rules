@@ -36,6 +36,7 @@ class AndExpressionTest extends RulesUnitTestBase {
     // The method on the test condition must be called once.
     $this->trueConditionExpression->executeWithState(
       Argument::type(ExecutionStateInterface::class))->shouldBeCalledTimes(1);
+
     $this->and->addExpressionObject($this->trueConditionExpression->reveal());
     $this->assertTrue($this->and->execute(), 'Single condition returns TRUE.');
   }
@@ -55,7 +56,7 @@ class AndExpressionTest extends RulesUnitTestBase {
    * Tests two true conditions.
    */
   public function testTwoConditions() {
-    // The method on the test condition must be called twice.
+    // The method on the test condition must be called once.
     $this->trueConditionExpression->executeWithState(
       Argument::type(ExecutionStateInterface::class))->shouldBeCalledTimes(1);
 

@@ -14,13 +14,13 @@ use Drupal\rules\Core\RulesActionBase;
  *   context = {
  *     "text" = @ContextDefinition("string",
  *       label = @Translation("Text to concatenate")
- *     )
+ *     ),
  *   },
  *   configure_permissions = { "access test configuration" },
  *   provides = {
  *     "concatenated" = @ContextDefinition("string",
  *       label = @Translation("Concatenated result")
- *     )
+ *     ),
  *   }
  * )
  */

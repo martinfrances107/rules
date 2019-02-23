@@ -18,7 +18,7 @@ use Symfony\Component\DependencyInjection\ContainerInterface;
  *     "message" = @ContextDefinition("string",
  *       label = @Translation("Message to log"),
  *       required = false
- *     )
+ *     ),
  *   }
  * )
  */

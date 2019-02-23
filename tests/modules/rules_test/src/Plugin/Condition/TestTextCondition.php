@@ -14,7 +14,7 @@ use Drupal\rules\Core\RulesConditionBase;
  *   context = {
  *     "text" = @ContextDefinition("string",
  *       label = @Translation("Text to compare")
- *     )
+ *     ),
  *   },
  *   configure_permissions = { "access test configuration" }
  * )

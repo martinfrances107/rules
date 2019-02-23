@@ -53,7 +53,7 @@ class OrExpressionTest extends RulesUnitTestBase {
   }
 
   /**
-   * Tests two true condition.
+   * Tests two true conditions.
    */
   public function testTwoConditions() {
     // The method on the test condition must be called once.
@@ -78,6 +78,7 @@ class OrExpressionTest extends RulesUnitTestBase {
    * Tests two false conditions.
    */
   public function testTwoFalseConditions() {
+    // The method on the test condition must be called once.
     $this->falseConditionExpression->executeWithState(
       Argument::type(ExecutionStateInterface::class))->shouldBeCalledTimes(1);
 

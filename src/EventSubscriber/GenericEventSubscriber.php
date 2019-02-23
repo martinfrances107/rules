@@ -63,7 +63,7 @@ class GenericEventSubscriber implements EventSubscriberInterface {
 
     // If there is no state service there is nothing we can do here. This static
     // method could be called early when the container is built, so the state
-    // service might no always be available.
+    // service might not always be available.
     if (!\Drupal::hasService('state')) {
       return [];
     }
