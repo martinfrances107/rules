@@ -55,7 +55,7 @@ class ContextIntegrationTest extends RulesKernelTestBase {
         ->toArray()
     );
 
-    $rule = $this->expressionManager->createRule([]);
+    $rule = $this->expressionManager->createRule();
     $rule->addExpressionObject($action);
     try {
       $rule->execute();
