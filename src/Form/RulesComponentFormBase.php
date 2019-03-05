@@ -91,7 +91,10 @@ abstract class RulesComponentFormBase extends EntityForm {
    */
   public function buildEntity(array $form, FormStateInterface $form_state) {
     $entity = parent::buildEntity($form, $form_state);
-    $tags = array_map('trim', explode(',', $entity->get('tags')));
+    $tags = [];
+    if (trim($entity->get('tags')) != '') {
+      $tags = array_map('trim', explode(',', $entity->get('tags')));
+    }
     $entity->set('tags', $tags);
     return $entity;
   }
