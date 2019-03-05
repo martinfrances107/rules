@@ -212,6 +212,16 @@ class ReactionRuleConfig extends ConfigEntityBase implements RulesUiComponentPro
   }
 
   /**
+   * Checks if there are tags associated with this config.
+   *
+   * @return bool
+   *   TRUE if the config has tags.
+   */
+  public function hasTags() {
+    return !empty($this->tags);
+  }
+
+  /**
    * Returns the tags associated with this config.
    *
    * @return string[]
