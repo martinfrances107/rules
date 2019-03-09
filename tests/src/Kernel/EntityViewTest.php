@@ -22,6 +22,9 @@ class EntityViewTest extends RulesKernelTestBase {
   protected function setUp() {
     parent::setUp();
 
+    $this->installEntitySchema('user');
+    $this->installEntitySchema('node');
+
     $this->installConfig(['system']);
     $this->installConfig(['field']);
     $this->installConfig(['node']);
@@ -32,9 +35,6 @@ class EntityViewTest extends RulesKernelTestBase {
     if (!empty(drupal_get_module_schema('system', 'router'))) {
       $this->installSchema('system', ['router']);
     }
-
-    $this->installEntitySchema('user');
-    $this->installEntitySchema('node');
 
     // Make sure that the node routes get picked when used during rendering.
     $this->container->get('router.builder')->rebuild();

@@ -34,14 +34,14 @@ class EventIntegrationTest extends RulesKernelTestBase {
     parent::setUp();
     $this->storage = $this->container->get('entity_type.manager')->getStorage('rules_reaction_rule');
 
+    $this->installEntitySchema('user');
+    $this->installEntitySchema('node');
+
     $this->installConfig(['system']);
     $this->installConfig(['field']);
     $this->installConfig(['node']);
     $this->installSchema('node', ['node_access']);
     $this->installSchema('system', ['sequences']);
-
-    $this->installEntitySchema('user');
-    $this->installEntitySchema('node');
   }
 
   /**
