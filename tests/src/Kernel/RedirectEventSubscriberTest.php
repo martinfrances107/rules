@@ -15,20 +15,6 @@ use Symfony\Component\HttpFoundation\Request;
 class RedirectEventSubscriberTest extends RulesKernelTestBase {
 
   /**
-   * {@inheritdoc}
-   */
-  protected function setUp() {
-    parent::setUp();
-
-    // Drupal 8.0.x needs the router table installed which is done automatically
-    // in Drupal 8.1.x. Remove this once Drupal 8.0.x is unsupported.
-    if (!empty(drupal_get_module_schema('system', 'router'))) {
-      $this->installSchema('system', ['router']);
-      $this->container->get('router.builder')->rebuild();
-    }
-  }
-
-  /**
    * Test the response is a redirect if a redirect url is added to the request.
    *
    * @covers ::checkRedirectIssued

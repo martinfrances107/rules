@@ -36,8 +36,6 @@ class ConfigureAndExecuteTest extends RulesBrowserTestBase {
         'name' => 'Article',
       ]);
     $type->save();
-    $this->container->get('router.builder')->rebuild();
-
   }
 
   /**

@@ -29,15 +29,6 @@ class EntityViewTest extends RulesKernelTestBase {
     $this->installConfig(['field']);
     $this->installConfig(['node']);
     $this->installSchema('system', ['sequences']);
-
-    // Drupal 8.0.x needs the router table installed which is done automatically
-    // in Drupal 8.1.x. Remove this once Drupal 8.0.x is unsupported.
-    if (!empty(drupal_get_module_schema('system', 'router'))) {
-      $this->installSchema('system', ['router']);
-    }
-
-    // Make sure that the node routes get picked when used during rendering.
-    $this->container->get('router.builder')->rebuild();
   }
 
   /**
