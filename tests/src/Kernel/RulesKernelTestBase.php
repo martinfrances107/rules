@@ -38,11 +38,18 @@ abstract class RulesKernelTestBase extends KernelTestBase {
   protected $logger;
 
   /**
-   * Rules logger.
+   * The messenger service.
    *
    * @var \Drupal\Core\Messenger\MessengerInterface
    */
   protected $messenger;
+
+  /**
+   * The datetime.time service.
+   *
+   * @var \Drupal\Component\Datetime\TimeInterface
+   */
+  protected $time;
 
   /**
    * Modules to enable.
@@ -72,6 +79,7 @@ abstract class RulesKernelTestBase extends KernelTestBase {
     $this->conditionManager = $this->container->get('plugin.manager.condition');
     $this->typedDataManager = $this->container->get('typed_data_manager');
     $this->messenger = $this->container->get('messenger');
+    $this->time = $this->container->get('datetime.time');
   }
 
   /**

@@ -32,13 +32,13 @@ class TokenIntegrationTest extends RulesKernelTestBase {
     $rule->addExpressionObject($action);
     RulesComponent::create($rule)
       ->addContextDefinition('date', ContextDefinition::create('timestamp'))
-      ->setContextValue('date', REQUEST_TIME)
+      ->setContextValue('date', $this->time->getRequestTime())
       ->execute();
 
     $messages = $this->messenger->all();
     /** @var \Drupal\Core\Datetime\DateFormatterInterface $date_formatter */
     $date_formatter = $this->container->get('date.formatter');
-    $date = $date_formatter->format(REQUEST_TIME, 'custom', 'Y-m');
+    $date = $date_formatter->format($this->time->getRequestTime(), 'custom', 'Y-m');
     $this->assertEquals("The date is $date!", (string) $messages[MessengerInterface::TYPE_STATUS][0]);
   }
 
