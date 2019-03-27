@@ -53,27 +53,27 @@ class TempStorageTest extends RulesBrowserTestBase {
     $this->drupalLogin($account_2);
 
     $this->drupalGet('admin/config/workflow/rules/reactions/edit/test_rule');
-    $this->assertSession()->pageTextContains('This rule is being edited by user ' . $account_1->getUsername() . ', and is therefore locked from editing by others.');
+    $this->assertSession()->pageTextContains('This rule is being edited by user ' . $account_1->getDisplayName() . ', and is therefore locked from editing by others.');
 
     $this->pressButton('Cancel');
     $this->assertSession()->pageTextNotContains('Canceled.');
-    $this->assertSession()->pageTextContains('This rule is being edited by user ' . $account_1->getUsername() . ', and is therefore locked from editing by others.');
+    $this->assertSession()->pageTextContains('This rule is being edited by user ' . $account_1->getDisplayName() . ', and is therefore locked from editing by others.');
 
     $this->pressButton('Save');
     $this->assertSession()->pageTextNotContains('Reaction rule Test rule has been updated.');
-    $this->assertSession()->pageTextContains('This rule is being edited by user ' . $account_1->getUsername() . ', and is therefore locked from editing by others.');
+    $this->assertSession()->pageTextContains('This rule is being edited by user ' . $account_1->getDisplayName() . ', and is therefore locked from editing by others.');
 
     $this->clickLink('Edit');
     $current_url = $this->getSession()->getCurrentUrl();
     $this->pressButton('Save');
 
     $this->assertEquals($current_url, $this->getSession()->getCurrentUrl());
-    $this->assertSession()->pageTextContains('This rule is being edited by user ' . $account_1->getUsername() . ', and is therefore locked from editing by others.');
+    $this->assertSession()->pageTextContains('This rule is being edited by user ' . $account_1->getDisplayName() . ', and is therefore locked from editing by others.');
 
     // Try breaking the lock to edit the rule.
     $this->clickLink('break this lock');
 
-    $this->assertSession()->pageTextContains('By breaking this lock, any unsaved changes made by ' . $account_1->getUsername() . ' will be lost.');
+    $this->assertSession()->pageTextContains('By breaking this lock, any unsaved changes made by ' . $account_1->getDisplayName() . ' will be lost.');
     $this->pressButton('Break lock');
 
     $this->assertSession()->pageTextContains('The lock has been broken and you may now edit this rule.');
