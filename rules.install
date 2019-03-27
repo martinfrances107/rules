@@ -5,6 +5,9 @@
  * Install, update and uninstall functions for the rules module.
  */
 
+use Drupal\rules\Entity\ReactionRuleConfig;
+use Drupal\rules\Entity\RulesComponentConfig;
+
 /**
  * Update the "tags" property of Reaction Rules and Rules Components.
  *
@@ -18,7 +21,7 @@ function rules_update_8301() {
   // there are no tags. The proper value is an empty array, "array()".
   $ids = \Drupal::entityQuery('rules_reaction_rule')->execute();
   foreach ($ids as $id) {
-    $rule = \Drupal\rules\Entity\ReactionRuleConfig::load($id);
+    $rule = ReactionRuleConfig::load($id);
     $tags = $rule->getTags();
     if ($tags == [0 => '']) {
       $rule->set('tags', []);
@@ -27,7 +30,7 @@ function rules_update_8301() {
   }
   $ids = \Drupal::entityQuery('rules_component')->execute();
   foreach ($ids as $id) {
-    $rule = \Drupal\rules\Entity\RulesComponentConfig::load($id);
+    $rule = RulesComponentConfig::load($id);
     $tags = $rule->getTags();
     if ($tags == [0 => '']) {
       $rule->set('tags', []);
