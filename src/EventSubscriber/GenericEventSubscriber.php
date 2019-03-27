@@ -92,7 +92,7 @@ class GenericEventSubscriber implements EventSubscriberInterface {
    *   The event name.
    */
   public function onRulesEvent(Event $event, $event_name) {
-    // Get event metadata and the to be triggered events.
+    // Get event metadata and the to-be-triggered events.
     $event_definition = $this->eventManager->getDefinition($event_name);
     $handler_class = $event_definition['class'];
     $triggered_events = [$event_name];

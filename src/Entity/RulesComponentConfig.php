@@ -69,7 +69,7 @@ class RulesComponentConfig extends ConfigEntityBase implements RulesUiComponentP
   protected $label;
 
   /**
-   * The description of the rule, which is used only in the interface.
+   * The description of the rule, which is used only in the user interface.
    *
    * @var string
    */
